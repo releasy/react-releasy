@@ -50,7 +50,7 @@ const config = new Config({
 Then we need to wrap the application with a `ReleasyProvider`:
 
 ```javascript
-import { ReleasyProvider } from 'releasy-provider';
+import { ReleasyProvider } from 'react-releasy';
 
 ReactDOM.render(
   <ReleasyProvider config={config}>
