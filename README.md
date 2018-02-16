@@ -65,7 +65,7 @@ Using `withReleasy` we can get the `environment`:
 ```javascript
 import React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
-import { ReleasyProvider } from 'react-releasy';
+import { withReleasy } from 'react-releasy';
 
 const MyComponent = ({ environment }) => (
   <QueryRenderer
@@ -91,7 +91,7 @@ const MyComponent = ({ environment }) => (
   />
 );
 
-export default MyComponent;
+export default withReleasy(MyComponent);
 ```
 
 And that's all! You can start making your own queries or whatever you want with Relay.
