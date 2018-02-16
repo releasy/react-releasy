@@ -1,0 +1,11 @@
+# The root of all... queries
+type Query {
+  me: User
+}
+
+# User data
+type User {
+  # The ID of an object
+  id: ID!
+  name: String
+}

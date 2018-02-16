@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReleasyProvider should have a valid getChildContext() 1`] = `
+Object {
+  "environment": RelayModernEnvironment {
+    "__setNet": [Function],
+    "_debugger": EnvironmentDebugger {
+      "_envIsDirty": false,
+      "_environment": [Circular],
+      "_id": "RelayModernEnvironment2",
+      "_isRecordingMutationEvents": false,
+      "_recordedMutationEvents": Array [],
+    },
+    "_network": Object {
+      "execute": [Function],
+    },
+    "_publishQueue": RelayPublishQueue {
+      "_appliedOptimisticUpdates": Set {},
+      "_backup": Object {},
+      "_handlerProvider": [Function],
+      "_pendingBackupRebase": false,
+      "_pendingData": Set {},
+      "_pendingOptimisticUpdates": Set {},
+      "_pendingUpdaters": Set {},
+      "_store": RelayMarkSweepStore {
+        "_hasScheduledGC": false,
+        "_index": 0,
+        "_recordSource": Object {},
+        "_roots": Map {},
+        "_subscriptions": Set {},
+        "_updatedRecordIDs": Object {},
+      },
+    },
+    "_store": RelayMarkSweepStore {
+      "_hasScheduledGC": false,
+      "_index": 0,
+      "_recordSource": Object {},
+      "_roots": Map {},
+      "_subscriptions": Set {},
+      "_updatedRecordIDs": Object {},
+    },
+    "configName": undefined,
+    "unstable_internal": Object {
+      "areEqualSelectors": [Function],
+      "createFragmentSpecResolver": [Function],
+      "createOperationSelector": [Function],
+      "getDataIDsFromObject": [Function],
+      "getFragment": [Function],
+      "getOperation": [Function],
+      "getSelector": [Function],
+      "getSelectorList": [Function],
+      "getSelectorsFromObject": [Function],
+      "getVariablesFromObject": [Function],
+    },
+  },
+}
+`;
+
+exports[`should render a valid ReleasyProvider 1`] = `
+ReleasyProvider {
+  "context": Object {},
+  "environment": RelayModernEnvironment {
+    "__setNet": [Function],
+    "_debugger": EnvironmentDebugger {
+      "_envIsDirty": false,
+      "_environment": [Circular],
+      "_id": "RelayModernEnvironment1",
+      "_isRecordingMutationEvents": false,
+      "_recordedMutationEvents": Array [],
+    },
+    "_network": Object {
+      "execute": [Function],
+    },
+    "_publishQueue": RelayPublishQueue {
+      "_appliedOptimisticUpdates": Set {},
+      "_backup": Object {},
+      "_handlerProvider": [Function],
+      "_pendingBackupRebase": false,
+      "_pendingData": Set {},
+      "_pendingOptimisticUpdates": Set {},
+      "_pendingUpdaters": Set {},
+      "_store": RelayMarkSweepStore {
+        "_hasScheduledGC": false,
+        "_index": 0,
+        "_recordSource": Object {},
+        "_roots": Map {},
+        "_subscriptions": Set {},
+        "_updatedRecordIDs": Object {},
+      },
+    },
+    "_store": RelayMarkSweepStore {
+      "_hasScheduledGC": false,
+      "_index": 0,
+      "_recordSource": Object {},
+      "_roots": Map {},
+      "_subscriptions": Set {},
+      "_updatedRecordIDs": Object {},
+    },
+    "configName": undefined,
+    "unstable_internal": Object {
+      "areEqualSelectors": [Function],
+      "createFragmentSpecResolver": [Function],
+      "createOperationSelector": [Function],
+      "getDataIDsFromObject": [Function],
+      "getFragment": [Function],
+      "getOperation": [Function],
+      "getSelector": [Function],
+      "getSelectorList": [Function],
+      "getSelectorsFromObject": [Function],
+      "getVariablesFromObject": [Function],
+    },
+  },
+  "props": Object {
+    "children": <DumbComponent />,
+    "config": Config {
+      "cache": null,
+      "devTools": false,
+      "link": Link {
+        "fetch": [Function],
+        "fetchTimeout": 30000,
+        "headers": Object {},
+        "retryDelays": Array [
+          1000,
+          3000,
+          5000,
+          10000,
+        ],
+        "url": "/graphql",
+      },
+      "networkLogger": false,
+    },
+  },
+  "refs": Object {},
+  "state": Object {},
+  "updater": Updater {
+    "_callbacks": Array [],
+    "_renderer": ReactShallowRenderer {
+      "_context": Object {},
+      "_element": <ReleasyProvider
+        config={
+          Config {
+            "cache": null,
+            "devTools": false,
+            "link": Link {
+              "fetch": [Function],
+              "fetchTimeout": 30000,
+              "headers": Object {},
+              "retryDelays": Array [
+                1000,
+                3000,
+                5000,
+                10000,
+              ],
+              "url": "/graphql",
+            },
+            "networkLogger": false,
+          }
+        }
+      >
+        <DumbComponent />
+      </ReleasyProvider>,
+      "_forcedUpdate": false,
+      "_instance": [Circular],
+      "_newState": null,
+      "_rendered": <DumbComponent />,
+      "_rendering": false,
+      "_updater": [Circular],
+    },
+  },
+}
+`;
+
+exports[`should thrown an error without "children" 1`] = `"ReleasyProvider: missing \\"children\\""`;
+
+exports[`should thrown an error without "config" 1`] = `"ReleasyProvider: missing \\"config\\""`;

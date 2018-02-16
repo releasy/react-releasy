@@ -1,0 +1,11 @@
+[ignore]
+.*/__tests__/.*
+
+[include]
+
+[libs]
+
+[options]
+sharedmemory.hash_table_pow=21
+suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
+suppress_type=$FlowFixMe

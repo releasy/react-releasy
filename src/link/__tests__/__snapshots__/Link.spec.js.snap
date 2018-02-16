@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create a valid Link 1`] = `
+Link {
+  "fetch": [Function],
+  "fetchTimeout": 30000,
+  "headers": Object {},
+  "retryDelays": Array [
+    1000,
+    3000,
+    5000,
+    10000,
+  ],
+  "url": "/graphql",
+}
+`;
+
+exports[`should fetch data with uploadables 1`] = `""`;
+
+exports[`should fetch default data 1`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "id": "fakeViewerId",
+      "name": "John Doe",
+    },
+  },
+}
+`;
+
+exports[`should thrown an error without "url" 1`] = `"Fetch: missing \\"url\\""`;
+
+exports[`should thrown an error without props 1`] = `"Fetch: missing props"`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should verify if is a mutation 1`] = `true`;
+
+exports[`should verify if is not a mutation 1`] = `false`;
+
+exports[`should verify if must force a fetch 1`] = `true`;
+
+exports[`should verify if must not force a fetch 1`] = `false`;
