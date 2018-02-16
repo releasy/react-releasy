@@ -8,7 +8,7 @@ A configuration class.
 import { Config, InMemoryCache, Link } from 'react-releasy';
 
 const config = new Config({
-  link: new Link({ url: '/graphql' }),
+  link: new Link({ url: 'https://yourserveraddress.com/graphql' }),
   cache: new InMemoryCache(),
   devTools: true,
   networkLogger: true,

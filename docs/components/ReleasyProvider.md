@@ -10,7 +10,7 @@ First create an instance of `Config`:
 import { Config, Link } from 'react-releasy';
 
 const link = new Link({
-  url: '/graphql',
+  url: 'https://yourserveraddress.com/graphql',
 });
 
 const config = new Config({
