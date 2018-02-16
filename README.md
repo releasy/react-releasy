@@ -60,6 +60,40 @@ ReactDOM.render(
 );
 ```
 
+Using `withReleasy` we can get the `environment`:
+
+```javascript
+import React from 'react';
+import { QueryRenderer, graphql } from 'react-relay';
+import { ReleasyProvider } from 'react-releasy';
+
+const MyComponent = ({ environment }) => (
+  <QueryRenderer
+    environment={environment}
+    query={graphql`
+      query MyComponentQuery {
+        me {
+          id
+        }
+      }
+    `}
+    render={({ error, props }) => {
+      if (error) {
+        return error.message;
+      }
+
+      if (props) {
+        return props.me.id;
+      }
+
+      return 'loading';
+    }}
+  />
+);
+
+export default MyComponent;
+```
+
 And that's all! You can start making your own queries or whatever you want with Relay.
 
 ## Documentation
