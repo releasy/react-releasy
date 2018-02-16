@@ -8,7 +8,7 @@ A class responsible to fetch data from server.
 import { Link } from 'react-releasy';
 
 const link = new Link({
-  url: '/graphql',
+  url: 'https://yourserveraddress.com/graphql',
   fetchTimeout: 30000,
   retryDelays: [1000, 3000, 5000, 10000],
   headers: {},
