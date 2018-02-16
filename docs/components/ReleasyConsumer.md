@@ -5,7 +5,7 @@ A component that injects `Relay` `environment` into any children.
 ## Usage
 
 ```javascript
-import { ReleasyProvider } from 'react-releasy';
+import { ReleasyConsumer } from 'react-releasy';
 
 // ... more code here
 

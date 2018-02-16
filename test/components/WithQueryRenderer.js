@@ -21,7 +21,7 @@ class WithQueryRenderer extends React.PureComponent<Props> {
             }
           }
         `}
-        render={({error, props}) => {
+        render={({ error, props }) => {
           if (error) {
             return error.message;
           }
