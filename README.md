@@ -17,13 +17,15 @@
 With Yarn:
 
 ```
-yarn add fbjs invariant react-relay relay-devtools relay-runtime react-releasy
+yarn add fbjs invariant react-relay relay-runtime react-releasy
+yarn add --dev relay-devtools
 ```
 
 or with NPM:
 
 ```
-npm install fbjs invariant react-relay relay-devtools relay-runtime react-releasy --save
+npm install --save fbjs invariant react-relay relay-runtime react-releasy
+npm install --save-dev relay-devtools
 ```
 
 ## Usage
