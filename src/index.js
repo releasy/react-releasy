@@ -1,3 +1,4 @@
+require('babel-polyfill');
 export { default as Config } from './Config';
 export type { CacheInterface, LinkInterface } from './Config';
 
