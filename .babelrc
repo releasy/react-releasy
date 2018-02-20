@@ -1,6 +1,7 @@
 {
   "presets": ["flow", "env", "react", "stage-0"],
   "plugins": [
+    "transform-runtime",
     ["relay", {"schema": "test/fixtures/graphql/schema.json"}]
   ]
 }
