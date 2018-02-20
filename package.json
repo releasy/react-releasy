@@ -13,6 +13,7 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-relay": "^1.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
@@ -25,30 +26,24 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
-    "fbjs": "^0.8.16",
     "flow-bin": "^0.65.0",
-    "invariant": "^2.2.2",
     "jest": "^22.2.1",
     "jest-fetch-mock": "^1.4.1",
     "lint-staged": "^6.1.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.10.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-relay": "^1.4.1",
     "relay-compiler": "^1.4.1",
-    "relay-devtools": "^1.4.0",
-    "relay-runtime": "^1.4.1"
+    "relay-devtools": "^1.4.0"
   },
-  "dependencies": {},
-  "peerDependencies": {
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
     "fbjs": "^0.8.16",
     "invariant": "^2.2.2",
-    "react": ">=0.16",
-    "react-relay": ">=1.4.0",
-    "relay-devtools": ">=1.4.0",
-    "relay-runtime": ">=1.4.0"
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-relay": "^1.4.1",
+    "relay-runtime": "^1.4.1"
   },
   "jest": {
     "setupFiles": [
@@ -89,6 +84,7 @@
     "lint": "eslint --ext js src",
     "lint:staged": "lint-staged",
     "check": "npm run lint && npm run test",
+    "release:prerelease": "npm run check && npm version prerelease && git push --follow-tags && npm publish --tag next --access public",
     "release:patch": "npm run check && npm version patch && git push --follow-tags && npm publish --access public",
     "release:minor": "npm run check && npm version minor && git push --follow-tags && npm publish --access public",
     "release:major": "npm run check && npm version major && git push --follow-tags && npm publish --access public",
