@@ -1,35 +1,20 @@
 // @flow
-import { CONTENT_TYPE, DATA, HTTP_STATUS } from '../../consts';
-import me from './data/me';
-
-const parseResponse = (contentType: $Values<typeof CONTENT_TYPE>, response: any): any => {
-  if (contentType === CONTENT_TYPE.JSON) {
-    return JSON.stringify(response);
-  }
-
-  return response;
-}
-
-const getMockedResponse = (data: $Values<typeof DATA>): any => {
-  if (data === DATA.ME) {
-    return me;
-  }
-
-  return "";
-};
+import { CONTENT_TYPE, HTTP_STATUS, MOCK_TYPE } from '../../consts';
+import parseResponse from './utils/parseResponse';
+import processRequest from './utils/processRequest';
 
 type MockFetchInput = {
   httpStatus?: $Values<typeof HTTP_STATUS>,
   contentType?: $Values<typeof CONTENT_TYPE>,
-  data?: $Values<typeof DATA>,
+  mock?: $Values<typeof MOCK_TYPE>,
 };
 
 const mockFetch = ({
   httpStatus = HTTP_STATUS.OK,
   contentType = CONTENT_TYPE.JSON,
-  data = DATA.ME,
+  mock = MOCK_TYPE.ME_QUERY,
 }: MockFetchInput = {}) => {
-  const response = getMockedResponse(data);
+  const response = processRequest(mock);
 
   fetch.mockResponseOnce(parseResponse(contentType, response), {
     status: httpStatus,

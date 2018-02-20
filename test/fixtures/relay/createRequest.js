@@ -1,14 +1,14 @@
 // @flow
-import { DATA } from '../../consts';
+import { MOCK_TYPE } from '../../consts';
 
 import type { RequestNode } from 'relay-runtime';
 
 type RequestsType = {
-  [$Values<typeof DATA>]: RequestNode,
+  [$Values<typeof MOCK_TYPE>]: RequestNode,
 };
 
 const REQUESTS: RequestsType = {
-  [DATA.ME]: {
+  [MOCK_TYPE.ME_QUERY]: {
     query: {
       operation: 'query',
     },
@@ -19,7 +19,7 @@ const REQUESTS: RequestsType = {
     '  }\n' +
     '}',
   },
-  [DATA.UPLOADABLE]: {
+  [MOCK_TYPE.UPLOADABLE_MUTATION]: {
     query: {
       operation: 'mutation',
     },
@@ -32,6 +32,6 @@ const REQUESTS: RequestsType = {
   },
 };
 
-const createRequest = (data?: $Values<typeof DATA> = DATA.ME): RequestNode => REQUESTS[data];
+const createRequest = (mock?: $Values<typeof MOCK_TYPE> = MOCK_TYPE.ME_QUERY): RequestNode => REQUESTS[mock];
 
 export default createRequest;

@@ -5,7 +5,7 @@ import DumbComponent from '../../test/components/DumbComponent';
 import WithQueryRenderer from '../../test/components/WithQueryRenderer';
 import mockFetch from '../../test/fixtures/fetch/mockFetch';
 import createConfig from '../../test/fixtures/createConfig';
-import { CONTENT_TYPE, DATA } from '../../test/consts';
+import { CONTENT_TYPE, MOCK_TYPE } from '../../test/consts';
 import { delay } from '../../test/utils';
 
 import InMemoryCache from '../cache/InMemoryCache';
@@ -70,7 +70,7 @@ it('should render a success QueryRenderer', async () => {
 
 it('should render an error QueryRenderer', async () => {
   // let's set a different content type and payload body to see it breaking muhahaha (666)
-  mockFetch({ contentType: CONTENT_TYPE.ALL, data: DATA.ME });
+  mockFetch({ contentType: CONTENT_TYPE.ALL, mock: MOCK_TYPE.ME_QUERY });
 
   const config = createConfig();
   const environment = createEnvironment(config);

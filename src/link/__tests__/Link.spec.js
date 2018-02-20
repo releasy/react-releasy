@@ -3,7 +3,7 @@ import createCacheConfig from '../../../test/fixtures/relay/createCacheConfig';
 import createRequest from '../../../test/fixtures/relay/createRequest';
 import createUploadables from '../../../test/fixtures/relay/createUploadables';
 import createVariables from '../../../test/fixtures/relay/createVariables';
-import { CONTENT_TYPE, DATA } from '../../../test/consts';
+import { CONTENT_TYPE, MOCK_TYPE } from '../../../test/consts';
 
 import Link from '../Link';
 
@@ -48,13 +48,13 @@ it('should fetch default data', async () => {
 });
 
 it('should fetch data with uploadables', async () => {
-  mockFetch({ contentType: CONTENT_TYPE.ALL, data: DATA.UPLOADABLE });
+  mockFetch({ contentType: CONTENT_TYPE.ALL, mock: MOCK_TYPE.UPLOADABLE_MUTATION });
 
   const link = new Link({
     url: '/graphql',
   });
 
-  const request = createRequest(DATA.UPLOADABLE);
+  const request = createRequest(MOCK_TYPE.UPLOADABLE_MUTATION);
   const variables = createVariables();
   const cacheConfig = createCacheConfig();
   const uploadables = createUploadables();
