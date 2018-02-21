@@ -2,10 +2,11 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import DumbComponent from '../../test/components/DumbComponent';
+import WithMutation from '../../test/components/WithMutation';
 import WithQueryRenderer from '../../test/components/WithQueryRenderer';
 import mockFetch from '../../test/fixtures/fetch/mockFetch';
 import createConfig from '../../test/fixtures/createConfig';
-import { CONTENT_TYPE, DATA } from '../../test/consts';
+import { CONTENT_TYPE, MOCK_TYPE } from '../../test/consts';
 import { delay } from '../../test/utils';
 
 import InMemoryCache from '../cache/InMemoryCache';
@@ -35,10 +36,10 @@ it('should thrown an error without "children"', () => {
 });
 
 it('should render a loading QueryRenderer', async () => {
-  mockFetch();
-
   const config = createConfig();
   const environment = createEnvironment(config);
+
+  mockFetch();
 
   const component = mount(
     <ReleasyConsumer>
@@ -51,10 +52,10 @@ it('should render a loading QueryRenderer', async () => {
 });
 
 it('should render a success QueryRenderer', async () => {
-  mockFetch();
-
   const config = createConfig();
   const environment = createEnvironment(config);
+
+  mockFetch();
 
   const component = mount(
     <ReleasyConsumer>
@@ -69,11 +70,11 @@ it('should render a success QueryRenderer', async () => {
 });
 
 it('should render an error QueryRenderer', async () => {
-  // let's set a different content type and payload body to see it breaking muhahaha (666)
-  mockFetch({ contentType: CONTENT_TYPE.ALL, data: DATA.ME });
-
   const config = createConfig();
   const environment = createEnvironment(config);
+
+  // let's set a different content type and payload body to see it breaking muhahaha (666)
+  mockFetch({ contentType: CONTENT_TYPE.ALL, mock: MOCK_TYPE.ME_QUERY });
 
   const component = mount(
     <ReleasyConsumer>
@@ -88,11 +89,11 @@ it('should render an error QueryRenderer', async () => {
 });
 
 it('should store data in the cache', async () => {
-  mockFetch();
-
   const cache = new InMemoryCache();
   const config = createConfig({ cache });
   const environment = createEnvironment(config);
+
+  mockFetch();
 
   mount(
     <ReleasyConsumer>
@@ -107,11 +108,11 @@ it('should store data in the cache', async () => {
 });
 
 it('should hit cache', async () => {
-  mockFetch();
-
   const cache = new InMemoryCache();
   const config = createConfig({ cache });
   const environment = createEnvironment(config);
+
+  mockFetch();
 
   mount(
     <ReleasyConsumer>
@@ -132,4 +133,35 @@ it('should hit cache', async () => {
   await delay(100);
 
   expect(config.cache.store._responses.size).toBe(1);
+});
+
+it('should clear cache', async () => {
+  const cache = new InMemoryCache();
+  const config = createConfig({ cache });
+  const environment = createEnvironment(config);
+
+  const name = 'Updated John Doe';
+
+  mockFetch();
+
+  mount(
+    <ReleasyConsumer>
+      <WithQueryRenderer />
+    </ReleasyConsumer>,
+    { context: { environment } },
+  );
+
+  await delay(100);
+  mockFetch({ mock: MOCK_TYPE.CHANGE_NAME_MUTATION });
+
+  mount(
+    <ReleasyConsumer>
+      <WithMutation name={name} />
+    </ReleasyConsumer>,
+    { context: { environment } },
+  );
+
+  await delay(100);
+
+  expect(config.cache.store._responses.size).toBe(0);
 });

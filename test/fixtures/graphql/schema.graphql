@@ -1,3 +1,18 @@
+input ChangeNameInput {
+  name: String!
+  clientMutationId: String
+}
+
+type ChangeNamePayload {
+  error: String
+  me: User
+  clientMutationId: String
+}
+
+type Mutation {
+  ChangeName(input: ChangeNameInput!): ChangeNamePayload
+}
+
 # The root of all... queries
 type Query {
   me: User
