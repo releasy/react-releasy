@@ -12,10 +12,25 @@ const REQUESTS: RequestsType = {
     query: {
       operation: 'query',
     },
-    name: 'meQuery',
-    text: 'query meQuery {\n' +
+    name: 'MeQuery',
+    text: 'query MeQuery {\n' +
     '  me {\n' +
     '    id\n' +
+    '    name\n' +
+    '  }\n' +
+    '}',
+  },
+  [MOCK_TYPE.CHANGE_NAME_MUTATION]: {
+    query: {
+      operation: 'mutation',
+    },
+    name: 'ChangeNameMutation',
+    text: 'mutation ChangeNameMutation($input: ChangeNameInput!) {\n' +
+    '  ChangeName(input: $input) {\n' +
+    '    me {\n' +
+    '      id\n' +
+    '      name\n' +
+    '    }\n' +
     '  }\n' +
     '}',
   },
@@ -23,10 +38,11 @@ const REQUESTS: RequestsType = {
     query: {
       operation: 'mutation',
     },
-    name: 'uploadableMutation',
-    text: 'mutation uploadableMutation {\n' +
+    name: 'UploadableMutation',
+    text: 'mutation UploadableMutation {\n' +
     '  me {\n' +
     '    id\n' +
+    '    name\n' +
     '  }\n' +
     '}',
   },

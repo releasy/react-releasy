@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should create default request body 1`] = `"{\\"query\\":\\"query meQuery {\\\\n  me {\\\\n    id\\\\n  }\\\\n}\\",\\"variables\\":{}}"`;
+exports[`should create default request body 1`] = `"{\\"query\\":\\"query MeQuery {\\\\n  me {\\\\n    id\\\\n    name\\\\n  }\\\\n}\\",\\"variables\\":{}}"`;
 
 exports[`should create request body for uploadables 1`] = `
 FormData {
@@ -8,9 +8,10 @@ FormData {
     "_entries": Array [
       Object {
         "name": "query",
-        "value": "query meQuery {
+        "value": "query MeQuery {
   me {
     id
+    name
   }
 }",
       },

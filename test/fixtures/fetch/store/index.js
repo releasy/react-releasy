@@ -1,10 +1,10 @@
 // @flow
 import users from './users';
 
-import type { UserType } from './users';
+import type { User } from './users';
 
 type StoreType = {
-  users: Array<UserType>,
+  users: Array<User>,
 };
 
 const STORE: StoreType = {
