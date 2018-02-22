@@ -6,6 +6,7 @@ import invariant from 'invariant';
 
 import createEnvironment from './relay/createEnvironment';
 import Config from './Config';
+import { setEnvironment, getEnvironment } from './store';
 
 type Props = {
   config: Config,
@@ -22,20 +23,18 @@ class ReleasyProvider extends React.PureComponent<Props> {
     environment: PropTypes.instanceOf(Environment).isRequired,
   };
 
-  environment: Environment;
-
   constructor(props: Props) {
     invariant(props.config, 'ReleasyProvider: missing "config"');
     invariant(props.children, 'ReleasyProvider: missing "children"');
 
     super(props);
 
-    this.environment = createEnvironment(props.config);
+    setEnvironment(createEnvironment(props.config));
   }
 
   getChildContext() {
     return {
-      environment: this.environment,
+      environment: getEnvironment(),
     };
   }
 

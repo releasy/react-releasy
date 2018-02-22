@@ -5,6 +5,7 @@ import DumbComponent from '../../test/components/DumbComponent';
 import createConfig from '../../test/fixtures/createConfig';
 
 import ReleasyProvider from '../ReleasyProvider';
+import { getEnvironment } from '../store';
 
 it('should render a valid ReleasyProvider', () => {
   const config = createConfig();
@@ -50,4 +51,17 @@ it('should thrown an error without "children"', () => {
   };
 
   expect(renderProvider).toThrowErrorMatchingSnapshot();
+});
+
+
+it('should be capable to get environment statically', () => {
+  const config = createConfig();
+
+  const component = shallow(
+    <ReleasyProvider config={config}>
+      <DumbComponent />
+    </ReleasyProvider>,
+  );
+
+  expect(getEnvironment()).toMatchSnapshot();
 });
