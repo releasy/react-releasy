@@ -56,38 +56,27 @@ Object {
 }
 `;
 
-exports[`should render a valid ReleasyProvider 1`] = `
-ReleasyProvider {
-  "context": Object {},
-  "environment": RelayModernEnvironment {
-    "__setNet": [Function],
-    "_debugger": EnvironmentDebugger {
-      "_envIsDirty": false,
-      "_environment": [Circular],
-      "_id": "RelayModernEnvironment1",
-      "_isRecordingMutationEvents": false,
-      "_recordedMutationEvents": Array [],
-    },
-    "_network": Object {
-      "execute": [Function],
-    },
-    "_publishQueue": RelayPublishQueue {
-      "_appliedOptimisticUpdates": Set {},
-      "_backup": Object {},
-      "_handlerProvider": [Function],
-      "_pendingBackupRebase": false,
-      "_pendingData": Set {},
-      "_pendingOptimisticUpdates": Set {},
-      "_pendingUpdaters": Set {},
-      "_store": RelayMarkSweepStore {
-        "_hasScheduledGC": false,
-        "_index": 0,
-        "_recordSource": Object {},
-        "_roots": Map {},
-        "_subscriptions": Set {},
-        "_updatedRecordIDs": Object {},
-      },
-    },
+exports[`should be capable to get environment statically 1`] = `
+RelayModernEnvironment {
+  "__setNet": [Function],
+  "_debugger": EnvironmentDebugger {
+    "_envIsDirty": false,
+    "_environment": [Circular],
+    "_id": "RelayModernEnvironment3",
+    "_isRecordingMutationEvents": false,
+    "_recordedMutationEvents": Array [],
+  },
+  "_network": Object {
+    "execute": [Function],
+  },
+  "_publishQueue": RelayPublishQueue {
+    "_appliedOptimisticUpdates": Set {},
+    "_backup": Object {},
+    "_handlerProvider": [Function],
+    "_pendingBackupRebase": false,
+    "_pendingData": Set {},
+    "_pendingOptimisticUpdates": Set {},
+    "_pendingUpdaters": Set {},
     "_store": RelayMarkSweepStore {
       "_hasScheduledGC": false,
       "_index": 0,
@@ -96,20 +85,34 @@ ReleasyProvider {
       "_subscriptions": Set {},
       "_updatedRecordIDs": Object {},
     },
-    "configName": undefined,
-    "unstable_internal": Object {
-      "areEqualSelectors": [Function],
-      "createFragmentSpecResolver": [Function],
-      "createOperationSelector": [Function],
-      "getDataIDsFromObject": [Function],
-      "getFragment": [Function],
-      "getOperation": [Function],
-      "getSelector": [Function],
-      "getSelectorList": [Function],
-      "getSelectorsFromObject": [Function],
-      "getVariablesFromObject": [Function],
-    },
   },
+  "_store": RelayMarkSweepStore {
+    "_hasScheduledGC": false,
+    "_index": 0,
+    "_recordSource": Object {},
+    "_roots": Map {},
+    "_subscriptions": Set {},
+    "_updatedRecordIDs": Object {},
+  },
+  "configName": undefined,
+  "unstable_internal": Object {
+    "areEqualSelectors": [Function],
+    "createFragmentSpecResolver": [Function],
+    "createOperationSelector": [Function],
+    "getDataIDsFromObject": [Function],
+    "getFragment": [Function],
+    "getOperation": [Function],
+    "getSelector": [Function],
+    "getSelectorList": [Function],
+    "getSelectorsFromObject": [Function],
+    "getVariablesFromObject": [Function],
+  },
+}
+`;
+
+exports[`should render a valid ReleasyProvider 1`] = `
+ReleasyProvider {
+  "context": Object {},
   "props": Object {
     "children": <DumbComponent />,
     "config": Config {

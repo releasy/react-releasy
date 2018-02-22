@@ -1,3 +1,5 @@
+export { getEnvironment } from './store';
+
 export { default as Config } from './Config';
 export type { CacheInterface, LinkInterface } from './Config';
 
