@@ -31,6 +31,15 @@ ReactDOM.render(
 );
 ```
 
+After this we can inject the `Relay` `environment` into our components using [withReleasy](../hocs/withReleasy.md), or even getting it directly:
+
+```javascript
+import { getEnvironment } from 'react-releasy';
+
+
+const environment = getEnvironment();
+```
+
 ## Props
 
 - **config**: see [Config](../classes/Config.md)
