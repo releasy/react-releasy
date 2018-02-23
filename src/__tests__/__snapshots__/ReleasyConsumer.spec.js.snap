@@ -9,13 +9,7 @@ ReleasyConsumer {
   "context": Object {
     "environment": RelayModernEnvironment {
       "__setNet": [Function],
-      "_debugger": EnvironmentDebugger {
-        "_envIsDirty": false,
-        "_environment": [Circular],
-        "_id": "RelayModernEnvironment1",
-        "_isRecordingMutationEvents": false,
-        "_recordedMutationEvents": Array [],
-      },
+      "_deferrableSelections": Set {},
       "_network": Object {
         "execute": [Function],
       },
@@ -28,6 +22,7 @@ ReleasyConsumer {
         "_pendingOptimisticUpdates": Set {},
         "_pendingUpdaters": Set {},
         "_store": RelayMarkSweepStore {
+          "_gcEnabled": true,
           "_hasScheduledGC": false,
           "_index": 0,
           "_recordSource": Object {},
@@ -37,6 +32,7 @@ ReleasyConsumer {
         },
       },
       "_store": RelayMarkSweepStore {
+        "_gcEnabled": true,
         "_hasScheduledGC": false,
         "_index": 0,
         "_recordSource": Object {},
@@ -51,7 +47,7 @@ ReleasyConsumer {
         "createOperationSelector": [Function],
         "getDataIDsFromObject": [Function],
         "getFragment": [Function],
-        "getOperation": [Function],
+        "getRequest": [Function],
         "getSelector": [Function],
         "getSelectorList": [Function],
         "getSelectorsFromObject": [Function],
@@ -70,13 +66,7 @@ ReleasyConsumer {
       "_context": Object {
         "environment": RelayModernEnvironment {
           "__setNet": [Function],
-          "_debugger": EnvironmentDebugger {
-            "_envIsDirty": false,
-            "_environment": [Circular],
-            "_id": "RelayModernEnvironment1",
-            "_isRecordingMutationEvents": false,
-            "_recordedMutationEvents": Array [],
-          },
+          "_deferrableSelections": Set {},
           "_network": Object {
             "execute": [Function],
           },
@@ -89,6 +79,7 @@ ReleasyConsumer {
             "_pendingOptimisticUpdates": Set {},
             "_pendingUpdaters": Set {},
             "_store": RelayMarkSweepStore {
+              "_gcEnabled": true,
               "_hasScheduledGC": false,
               "_index": 0,
               "_recordSource": Object {},
@@ -98,6 +89,7 @@ ReleasyConsumer {
             },
           },
           "_store": RelayMarkSweepStore {
+            "_gcEnabled": true,
             "_hasScheduledGC": false,
             "_index": 0,
             "_recordSource": Object {},
@@ -112,7 +104,7 @@ ReleasyConsumer {
             "createOperationSelector": [Function],
             "getDataIDsFromObject": [Function],
             "getFragment": [Function],
-            "getOperation": [Function],
+            "getRequest": [Function],
             "getSelector": [Function],
             "getSelectorList": [Function],
             "getSelectorsFromObject": [Function],
@@ -131,13 +123,7 @@ ReleasyConsumer {
           environment={
             RelayModernEnvironment {
               "__setNet": [Function],
-              "_debugger": EnvironmentDebugger {
-                "_envIsDirty": false,
-                "_environment": [Circular],
-                "_id": "RelayModernEnvironment1",
-                "_isRecordingMutationEvents": false,
-                "_recordedMutationEvents": Array [],
-              },
+              "_deferrableSelections": Set {},
               "_network": Object {
                 "execute": [Function],
               },
@@ -150,6 +136,7 @@ ReleasyConsumer {
                 "_pendingOptimisticUpdates": Set {},
                 "_pendingUpdaters": Set {},
                 "_store": RelayMarkSweepStore {
+                  "_gcEnabled": true,
                   "_hasScheduledGC": false,
                   "_index": 0,
                   "_recordSource": Object {},
@@ -159,6 +146,7 @@ ReleasyConsumer {
                 },
               },
               "_store": RelayMarkSweepStore {
+                "_gcEnabled": true,
                 "_hasScheduledGC": false,
                 "_index": 0,
                 "_recordSource": Object {},
@@ -173,7 +161,7 @@ ReleasyConsumer {
                 "createOperationSelector": [Function],
                 "getDataIDsFromObject": [Function],
                 "getFragment": [Function],
-                "getOperation": [Function],
+                "getRequest": [Function],
                 "getSelector": [Function],
                 "getSelectorList": [Function],
                 "getSelectorsFromObject": [Function],
