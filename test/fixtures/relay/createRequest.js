@@ -9,9 +9,7 @@ type RequestsType = {
 
 const REQUESTS: RequestsType = {
   [MOCK_TYPE.ME_QUERY]: {
-    query: {
-      operation: 'query',
-    },
+    operationKind: 'query',
     name: 'MeQuery',
     text: 'query MeQuery {\n' +
     '  me {\n' +
@@ -21,9 +19,7 @@ const REQUESTS: RequestsType = {
     '}',
   },
   [MOCK_TYPE.CHANGE_NAME_MUTATION]: {
-    query: {
-      operation: 'mutation',
-    },
+    operationKind: 'mutation',
     name: 'ChangeNameMutation',
     text: 'mutation ChangeNameMutation($input: ChangeNameInput!) {\n' +
     '  ChangeName(input: $input) {\n' +
@@ -35,9 +31,7 @@ const REQUESTS: RequestsType = {
     '}',
   },
   [MOCK_TYPE.UPLOADABLE_MUTATION]: {
-    query: {
-      operation: 'mutation',
-    },
+    operationKind: 'mutation',
     name: 'UploadableMutation',
     text: 'mutation UploadableMutation {\n' +
     '  me {\n' +

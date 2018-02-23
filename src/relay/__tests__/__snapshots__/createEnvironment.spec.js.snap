@@ -3,13 +3,7 @@
 exports[`should create Environment with devTools 1`] = `
 RelayModernEnvironment {
   "__setNet": [Function],
-  "_debugger": EnvironmentDebugger {
-    "_envIsDirty": false,
-    "_environment": [Circular],
-    "_id": "RelayModernEnvironment2",
-    "_isRecordingMutationEvents": false,
-    "_recordedMutationEvents": Array [],
-  },
+  "_deferrableSelections": Set {},
   "_network": Object {
     "execute": [Function],
   },
@@ -22,6 +16,7 @@ RelayModernEnvironment {
     "_pendingOptimisticUpdates": Set {},
     "_pendingUpdaters": Set {},
     "_store": RelayMarkSweepStore {
+      "_gcEnabled": true,
       "_hasScheduledGC": false,
       "_index": 0,
       "_recordSource": Object {},
@@ -31,6 +26,7 @@ RelayModernEnvironment {
     },
   },
   "_store": RelayMarkSweepStore {
+    "_gcEnabled": true,
     "_hasScheduledGC": false,
     "_index": 0,
     "_recordSource": Object {},
@@ -45,7 +41,7 @@ RelayModernEnvironment {
     "createOperationSelector": [Function],
     "getDataIDsFromObject": [Function],
     "getFragment": [Function],
-    "getOperation": [Function],
+    "getRequest": [Function],
     "getSelector": [Function],
     "getSelectorList": [Function],
     "getSelectorsFromObject": [Function],
@@ -57,13 +53,7 @@ RelayModernEnvironment {
 exports[`should create default Environment 1`] = `
 RelayModernEnvironment {
   "__setNet": [Function],
-  "_debugger": EnvironmentDebugger {
-    "_envIsDirty": false,
-    "_environment": [Circular],
-    "_id": "RelayModernEnvironment1",
-    "_isRecordingMutationEvents": false,
-    "_recordedMutationEvents": Array [],
-  },
+  "_deferrableSelections": Set {},
   "_network": Object {
     "execute": [Function],
   },
@@ -76,6 +66,7 @@ RelayModernEnvironment {
     "_pendingOptimisticUpdates": Set {},
     "_pendingUpdaters": Set {},
     "_store": RelayMarkSweepStore {
+      "_gcEnabled": true,
       "_hasScheduledGC": false,
       "_index": 0,
       "_recordSource": Object {},
@@ -85,6 +76,7 @@ RelayModernEnvironment {
     },
   },
   "_store": RelayMarkSweepStore {
+    "_gcEnabled": true,
     "_hasScheduledGC": false,
     "_index": 0,
     "_recordSource": Object {},
@@ -99,7 +91,7 @@ RelayModernEnvironment {
     "createOperationSelector": [Function],
     "getDataIDsFromObject": [Function],
     "getFragment": [Function],
-    "getOperation": [Function],
+    "getRequest": [Function],
     "getSelector": [Function],
     "getSelectorList": [Function],
     "getSelectorsFromObject": [Function],

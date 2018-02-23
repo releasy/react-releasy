@@ -28,12 +28,12 @@
     "eslint-plugin-react": "^7.6.1",
     "flow-bin": "^0.65.0",
     "jest": "^22.2.1",
-    "jest-fetch-mock": "^1.4.1",
+    "jest-fetch-mock": "^1.4.2",
     "lint-staged": "^6.1.0",
     "pre-commit": "^1.2.2",
     "prettier": "^1.10.2",
     "react-dom": "^16.2.0",
-    "relay-compiler": "^1.4.1",
+    "relay-compiler": "^1.5.0",
     "relay-devtools": "^1.4.0"
   },
   "dependencies": {
@@ -42,8 +42,8 @@
     "invariant": "^2.2.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-relay": "^1.4.1",
-    "relay-runtime": "^1.4.1"
+    "react-relay": "^1.5.0",
+    "relay-runtime": "^1.5.0"
   },
   "jest": {
     "setupFiles": [
@@ -88,6 +88,6 @@
     "release:patch": "npm run check && npm version patch && git push --follow-tags && npm publish --access public",
     "release:minor": "npm run check && npm version minor && git push --follow-tags && npm publish --access public",
     "release:major": "npm run check && npm version major && git push --follow-tags && npm publish --access public",
-    "relay": "relay-compiler --src ./test --schema test/fixtures/graphql/schema.graphql"
+    "relay": "relay-compiler --src ./test/components --schema test/fixtures/graphql/schema.graphql"
   }
 }
