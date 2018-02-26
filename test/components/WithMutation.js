@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { Environment } from 'relay-runtime';
 
 import ChangeNameMutation from './ChangeNameMutation';

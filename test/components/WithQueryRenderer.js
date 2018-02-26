@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
 import { Environment } from 'relay-runtime';
 
