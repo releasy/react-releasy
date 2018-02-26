@@ -8,6 +8,11 @@
     "graphql"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/releasy/react-releasy#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/releasy/react-releasy"
+  },
   "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "^6.26.0",
