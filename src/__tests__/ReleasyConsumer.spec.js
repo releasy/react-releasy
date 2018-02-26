@@ -152,7 +152,10 @@ it('should clear cache', async () => {
   );
 
   await delay(100);
-  mockFetch({ mock: MOCK_TYPE.CHANGE_NAME_MUTATION });
+  mockFetch({
+    mock: MOCK_TYPE.CHANGE_NAME_MUTATION,
+    data: { name },
+  });
 
   mount(
     <ReleasyConsumer>
