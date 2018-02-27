@@ -19,13 +19,13 @@ const CreateWithQueryDefaultInput = {
 const createWithQuery = ({ variables }: CreateWithQueryInput = CreateWithQueryDefaultInput): React.ComponentType<QueryRenderProps> => {
   class WithQuery extends React.PureComponent<QueryRenderProps> {
     render() {
-      const { error, loading, me } = this.props;
+      const { error, isFetching, me } = this.props;
 
       if (error) {
         return error.message;
       }
 
-      if (loading) {
+      if (isFetching) {
         return 'loading';
       }
 

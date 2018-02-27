@@ -9,7 +9,7 @@ import type { GraphQLTaggedNode, Variables } from 'relay-runtime';
 export type Props = {
   error: ?Error,
   retry: ?() => void,
-  loading: boolean,
+  isFetching: boolean,
 };
 
 export type VariablesResolver =  Variables | (props: Object) => Variables;
@@ -40,7 +40,7 @@ const query = (
                 {...props}
                 error={error}
                 retry={retry}
-                loading={!props && !error}
+                isFetching={!props && !error}
               />
             );
           }}
