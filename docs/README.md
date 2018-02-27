@@ -13,4 +13,5 @@
 
 ## Higher-Order Components
 
+- [query](hocs/query.md)
 - [withReleasy](hocs/withReleasy.md)
