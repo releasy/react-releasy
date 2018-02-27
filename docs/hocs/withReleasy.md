@@ -16,6 +16,10 @@ export default withReleasy(MyComponent);
 
 - a `React` component class
 
+## Injected props
+
+- **environment**: the `Relay` `environment`
+
 ----
 
 [Go back](../)

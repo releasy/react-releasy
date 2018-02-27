@@ -3,14 +3,14 @@ import { graphql, commitMutation } from 'react-relay';
 import { Environment } from 'relay-runtime';
 
 const mutation = graphql`
-mutation ChangeNameMutation($input: ChangeNameInput!) {
-  ChangeName(input: $input) {
-    me {
-      id
-      name
+  mutation ChangeNameMutation($input: ChangeNameInput!) {
+    ChangeName(input: $input) {
+      me {
+        id
+        name
+      }
     }
   }
-}
 `;
 
 let tempID = 0;

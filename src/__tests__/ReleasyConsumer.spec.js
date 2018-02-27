@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import DumbComponent from '../../test/components/DumbComponent';
-import WithMutation from '../../test/components/WithMutation';
-import WithQueryRenderer from '../../test/components/WithQueryRenderer';
+import createWithMutation from '../../test/components/createWithMutation';
+import createWithRelayQueryRenderer from '../../test/components/createWithRelayQueryRenderer';
 import mockFetch from '../../test/fixtures/fetch/mockFetch';
 import createConfig from '../../test/fixtures/createConfig';
 import { CONTENT_TYPE, MOCK_TYPE } from '../../test/consts';
@@ -36,6 +36,8 @@ it('should thrown an error without "children"', () => {
 });
 
 it('should render a loading QueryRenderer', async () => {
+  const WithRelayQueryRenderer = createWithRelayQueryRenderer();
+
   const config = createConfig();
   const environment = createEnvironment(config);
 
@@ -43,15 +45,17 @@ it('should render a loading QueryRenderer', async () => {
 
   const component = mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
 
-  expect(component.find(WithQueryRenderer).text()).toMatchSnapshot();
+  expect(component.find(WithRelayQueryRenderer).text()).toMatchSnapshot();
 });
 
 it('should render a success QueryRenderer', async () => {
+  const WithRelayQueryRenderer = createWithRelayQueryRenderer();
+
   const config = createConfig();
   const environment = createEnvironment(config);
 
@@ -59,17 +63,19 @@ it('should render a success QueryRenderer', async () => {
 
   const component = mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
 
   await delay(100);
 
-  expect(component.find(WithQueryRenderer).text()).toMatchSnapshot();
+  expect(component.find(WithRelayQueryRenderer).text()).toMatchSnapshot();
 });
 
 it('should render an error QueryRenderer', async () => {
+  const WithRelayQueryRenderer = createWithRelayQueryRenderer();
+
   const config = createConfig();
   const environment = createEnvironment(config);
 
@@ -78,17 +84,19 @@ it('should render an error QueryRenderer', async () => {
 
   const component = mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
 
   await delay(100);
 
-  expect(component.find(WithQueryRenderer).text()).toMatchSnapshot();
+  expect(component.find(WithRelayQueryRenderer).text()).toMatchSnapshot();
 });
 
 it('should store data in the cache', async () => {
+  const WithRelayQueryRenderer = createWithRelayQueryRenderer();
+
   const cache = new InMemoryCache();
   const config = createConfig({ cache });
   const environment = createEnvironment(config);
@@ -97,7 +105,7 @@ it('should store data in the cache', async () => {
 
   mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
@@ -108,6 +116,8 @@ it('should store data in the cache', async () => {
 });
 
 it('should hit cache', async () => {
+  const WithRelayQueryRenderer = createWithRelayQueryRenderer();
+
   const cache = new InMemoryCache();
   const config = createConfig({ cache });
   const environment = createEnvironment(config);
@@ -116,7 +126,7 @@ it('should hit cache', async () => {
 
   mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
@@ -125,7 +135,7 @@ it('should hit cache', async () => {
 
   mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
@@ -136,17 +146,20 @@ it('should hit cache', async () => {
 });
 
 it('should clear cache', async () => {
+  const name = 'Updated John Doe';
+
+  const WithMutation = createWithMutation({ name });
+  const WithRelayQueryRenderer = createWithRelayQueryRenderer();
+
   const cache = new InMemoryCache();
   const config = createConfig({ cache });
   const environment = createEnvironment(config);
-
-  const name = 'Updated John Doe';
 
   mockFetch();
 
   mount(
     <ReleasyConsumer>
-      <WithQueryRenderer />
+      <WithRelayQueryRenderer />
     </ReleasyConsumer>,
     { context: { environment } },
   );
@@ -159,7 +172,7 @@ it('should clear cache', async () => {
 
   mount(
     <ReleasyConsumer>
-      <WithMutation name={name} />
+      <WithMutation />
     </ReleasyConsumer>,
     { context: { environment } },
   );

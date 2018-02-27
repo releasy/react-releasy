@@ -30,7 +30,7 @@ npm install --save-dev relay-devtools
 
 ## Usage
 
-Using `Releasy` is quite simple, first we need to create an instance of our `Config` class:
+Using `Releasy` is quite simple, first we need to create an instance of our [Config](docs/classes/Config.md) class:
 
 ```javascript
 import { Config, InMemoryCache, Link } from 'react-releasy';
@@ -47,7 +47,7 @@ const config = new Config({
 });
 ```
 
-Then we need to wrap the application with a `ReleasyProvider`:
+Then we need to wrap the application with a [ReleasyProvider](docs/components/ReleasyProvider.md):
 
 ```javascript
 import { ReleasyProvider } from 'react-releasy';
@@ -60,7 +60,38 @@ ReactDOM.render(
 );
 ```
 
-Using `withReleasy` we can get the `environment`:
+## Examples
+
+Let's start making a simple [query](docs/hocs/query.md):
+
+```javascript
+import { graphql } from 'react-relay';
+import { query } from 'react-releasy';
+
+const MyComponent = ({ error, isFetching, me }) => {
+  if (error) {
+    return `Error: ${error.message}`;
+  }
+
+  if (isFetching) {
+    return 'Loading...';
+  }
+
+  return `My name is ${me.name}`;
+}
+
+export default query(
+  graphql`
+    query MyComponentMeQuery {
+      me {
+        name
+      }
+    }
+  `
+)(MyComponent);
+```
+
+If you want to implement your own abstraction of [Relay QueryRenderer](https://facebook.github.io/relay/docs/en/query-renderer.html) or even create some [mutations](https://facebook.github.io/relay/docs/en/mutations.html), we can use [withReleasy](docs/hocs/withReleasy.md) to get the `environment`:
 
 ```javascript
 import React from 'react';
@@ -71,7 +102,7 @@ const MyComponent = ({ environment }) => (
   <QueryRenderer
     environment={environment}
     query={graphql`
-      query MyComponentQuery {
+      query MyComponentMeQuery {
         me {
           id
         }
@@ -94,7 +125,43 @@ const MyComponent = ({ environment }) => (
 export default withReleasy(MyComponent);
 ```
 
-And that's all! You can start making your own queries or whatever you want with Relay.
+Also, we can get it directly using `getEnvironment`:
+
+```javascript
+import { graphql, commitMutation } from 'react-relay';
+import { getEnvironment } from 'react-releasy';
+
+const environment = getEnvironment();
+
+const mutation = graphql`
+  mutation ChangeNameMutation($input: ChangeNameInput!) {
+    ChangeName(input: $input) {
+      me {
+        id
+        name
+      }
+    }
+  }
+`;
+
+let tempID = 0;
+
+const commit = (name) => {
+  return commitMutation(environment, {
+    mutation,
+    variables: {
+      input: {
+        name,
+        clientMutationId: tempID++,
+      },
+    },
+  });
+};
+
+export default { commit };
+```
+
+That's all! You can start to do whatever you want and show to the world the power of Relay.
 
 ## Documentation
 

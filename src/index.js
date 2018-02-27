@@ -7,6 +7,9 @@ export { default as ReleasyProvider } from './ReleasyProvider';
 export { default as ReleasyConsumer } from './ReleasyConsumer';
 export { default as withReleasy } from './withReleasy';
 
+export { default as query } from './query';
+export type { Props as QueryRenderProps } from './query';
+
 export { default as InMemoryCache } from './cache/InMemoryCache';
 
 export { default as Link } from './link/Link';
