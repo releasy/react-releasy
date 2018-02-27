@@ -1,5 +1,5 @@
 // @flow
-import type { CacheConfig, RequestNode, UploadableMap, Variables } from 'relay-runtime';
+import type { RequestNode, UploadableMap, Variables } from 'relay-runtime';
 
 const getRequestBodyWithUploadables = (
   request: RequestNode,

@@ -2,9 +2,10 @@
 import { Network } from 'relay-runtime';
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
+import type { CacheConfig, RequestNode, UploadableMap, Variables } from 'relay-runtime';
+
 import { isMutation, mustForceFetch } from './utils';
 
-import type { CacheConfig, RequestNode, UploadableMap, Variables } from 'relay-runtime';
 import type { Config } from '../index';
 
 const createNetwork = (config: Config): Network => {

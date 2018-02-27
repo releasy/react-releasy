@@ -9,6 +9,6 @@ export const getEnvironment = (): Environment => store.get(ENVIRONMENT_KEY);
 
 export const setEnvironment = (environment: Environment): void => {
   store.set(ENVIRONMENT_KEY, environment);
-}
+};
 
 export default store;

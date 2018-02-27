@@ -12,12 +12,13 @@ export type Props = {
   isFetching: boolean,
 };
 
-export type VariablesResolver =  Variables | (props: Object) => Variables;
+export type VariablesResolver = Variables | (props: Object) => Variables;
 
 const query = (
   queryParam: GraphQLTaggedNode,
   variablesParam?: VariablesResolver,
 ) => (WrappedComponent: React.ComponentType<*>): React.ComponentType<Props> => {
+  // eslint-disable-next-line
   class Query extends React.PureComponent<$FlowFixMe> {
     static contextTypes = {
       environment: PropTypes.instanceOf(Environment).isRequired,

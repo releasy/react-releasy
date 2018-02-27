@@ -15,7 +15,7 @@ type Props = {
 
 class ReleasyProvider extends React.PureComponent<Props> {
   static propTypes = {
-    config: PropTypes.instanceOf(Config),
+    config: PropTypes.instanceOf(Config).isRequired,
     children: PropTypes.element.isRequired,
   };
 

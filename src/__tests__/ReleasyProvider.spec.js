@@ -57,7 +57,7 @@ it('should thrown an error without "children"', () => {
 it('should be capable to get environment statically', () => {
   const config = createConfig();
 
-  const component = shallow(
+  shallow(
     <ReleasyProvider config={config}>
       <DumbComponent />
     </ReleasyProvider>,

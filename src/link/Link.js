@@ -2,10 +2,10 @@
 import invariant from 'invariant';
 import fetchWithRetries from 'fbjs/lib/fetchWithRetries';
 
+import type { CacheConfig, RequestNode, UploadableMap, Variables } from 'relay-runtime';
+
 import getHeaders from './getHeaders';
 import getRequestBody from './getRequestBody';
-
-import type { CacheConfig, RequestNode, UploadableMap, Variables } from 'relay-runtime';
 
 export type Props = {
   url: string,
@@ -30,7 +30,7 @@ class Link {
     this.retryDelays = props.retryDelays || [1000, 3000, 5000, 10000];
   }
 
-  fetch = async(
+  fetch = async (
     request: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
