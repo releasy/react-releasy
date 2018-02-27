@@ -8,9 +8,15 @@ import type { GraphQLTaggedNode } from 'relay-runtime';
 import type { VariablesResolver } from '../../src/query';
 import type { QueryRenderProps } from '../../src';
 
-const withQuery = (
-  variablesParam?: VariablesResolver = {},
-): React.ComponentType<QueryRenderProps> => {
+type CreateWithQueryInput = {
+  variables?: VariablesResolver,
+}
+
+const CreateWithQueryDefaultInput = {
+  variables: {},
+};
+
+const createWithQuery = ({ variables }: CreateWithQueryInput = CreateWithQueryDefaultInput): React.ComponentType<QueryRenderProps> => {
   class WithQuery extends React.PureComponent<QueryRenderProps> {
     render() {
       const { error, loading, me } = this.props;
@@ -29,16 +35,16 @@ const withQuery = (
 
   return query(
     graphql`
-      query WithQueryMeQuery {
+      query createWithQueryMeQuery {
         me {
           id
         }
       }
     `,
-    variablesParam,
+    variables,
   )(WithQuery);
 }
 
-export default withQuery;
+export default createWithQuery;
 
 
