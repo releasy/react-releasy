@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create a custom cache 1`] = `
+InMemoryCache {
+  "clear": [Function],
+  "get": [Function],
+  "set": [Function],
+  "store": RelayQueryResponseCache {
+    "_responses": Map {},
+    "_size": 100,
+    "_ttl": 100,
+  },
+}
+`;
+
+exports[`should create a default cache 1`] = `
+InMemoryCache {
+  "clear": [Function],
+  "get": [Function],
+  "set": [Function],
+  "store": RelayQueryResponseCache {
+    "_responses": Map {},
+    "_size": 250,
+    "_ttl": 300000,
+  },
+}
+`;
