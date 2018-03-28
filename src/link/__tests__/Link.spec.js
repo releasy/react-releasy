@@ -63,3 +63,20 @@ it('should fetch data with uploadables', async () => {
 
   expect(data).toMatchSnapshot();
 });
+
+it('should use custom headers', async () => {
+  mockFetch();
+
+  const link = new Link({
+    url: '/graphql',
+    headers: () => ({ john: 'doe' }),
+  });
+
+  const request = createRequest();
+  const variables = createVariables();
+  const cacheConfig = createCacheConfig();
+
+  const data = await link.fetch(request, variables, cacheConfig);
+
+  expect(data).toMatchSnapshot();
+});

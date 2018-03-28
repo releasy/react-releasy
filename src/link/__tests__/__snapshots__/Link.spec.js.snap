@@ -31,3 +31,14 @@ Object {
 exports[`should thrown an error without "url" 1`] = `"Fetch: missing \\"url\\""`;
 
 exports[`should thrown an error without props 1`] = `"Fetch: missing props"`;
+
+exports[`should use custom headers 1`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "id": "fakeViewerId",
+      "name": "John Doe",
+    },
+  },
+}
+`;
