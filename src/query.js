@@ -39,6 +39,7 @@ const query = (
               <WrappedComponent
                 {...this.props}
                 {...props}
+                query={props}
                 error={error}
                 retry={retry}
                 isFetching={!props && !error}
