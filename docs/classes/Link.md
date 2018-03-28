@@ -15,6 +15,22 @@ const link = new Link({
 });
 ```
 
+Also, we can use a function to generate the `headers` object:
+
+```javascript
+import { Link } from 'react-releasy';
+
+// this function would get the token inside localStorage or AsyncStorage
+import { getToken } from './auth';
+
+const link = new Link({
+  url: 'https://yourserveraddress.com/graphql',
+  fetchTimeout: 30000,
+  retryDelays: [1000, 3000, 5000, 10000],
+  headers: () => ({ token: getToken() }),
+});
+```
+
 ## Props
 
 - **url**: the server address

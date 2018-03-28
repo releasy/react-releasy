@@ -11,14 +11,14 @@ export type Props = {
   url: string,
   fetchTimeout?: number,
   retryDelays?: Array<number>,
-  headers?: Object,
+  headers?: Object | () => Object,
 };
 
 class Link {
   url: string;
   fetchTimeout: number;
   retryDelays: Array<number>;
-  headers: Object;
+  headers: Object | () => Object;
 
   constructor(props: Props) {
     invariant(props, 'Fetch: missing props');
@@ -36,9 +36,11 @@ class Link {
     cacheConfig: CacheConfig,
     uploadables?: UploadableMap,
   ): ?Promise<any> => {
+    const customHeaders = typeof this.headers === 'function' ? this.headers() : this.headers;
+
     const headers = {
       ...getHeaders(uploadables),
-      ...this.headers,
+      ...customHeaders,
     };
 
     const body = getRequestBody(request, variables, uploadables);
