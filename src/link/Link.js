@@ -21,8 +21,8 @@ class Link {
   headers: Object | () => Object;
 
   constructor(props: Props) {
-    invariant(props, 'Fetch: missing props');
-    invariant(props.url, 'Fetch: missing "url"');
+    invariant(props, 'Link: missing props');
+    invariant(props.url, 'Link: missing "url"');
 
     this.url = props.url;
     this.headers = props.headers || {};
@@ -35,7 +35,7 @@ class Link {
     variables: Variables,
     cacheConfig: CacheConfig,
     uploadables?: UploadableMap,
-  ): ?Promise<any> => {
+  ): Promise<any> => {
     const customHeaders = typeof this.headers === 'function' ? this.headers() : this.headers;
 
     const headers = {

@@ -13,3 +13,5 @@ export type { Props as QueryRenderProps } from './query';
 export { default as InMemoryCache } from './cache/InMemoryCache';
 
 export { default as Link } from './link/Link';
+export { default as ClientLink } from './link/ClientLink';
+export { default as ServerLink } from './link/ServerLink';
