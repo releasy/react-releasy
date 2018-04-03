@@ -3,6 +3,9 @@ import invariant from 'invariant';
 
 import type { CacheConfig, GraphQLResponse, RequestNode, UploadableMap, Variables } from 'relay-runtime';
 
+import createEnvironment from './relay/createEnvironment';
+import { setEnvironment } from './store';
+
 export type LinkInterface = {|
   fetch: (
     request: RequestNode,
@@ -39,6 +42,8 @@ class Config {
     this.cache = props.cache || null;
     this.devTools = props.devTools || false;
     this.networkLogger = props.networkLogger || false;
+
+    setEnvironment(createEnvironment(this));
   }
 }
 
