@@ -11,20 +11,16 @@ export type Props = LinkProps;
 
 class ServerLink {
   link: Link;
-  promises: Array<Promise<any>>;
   payloads: Array<any>;
 
   constructor(props: Props) {
     invariant(props, 'ServerLink: missing props');
 
     this.link = new Link(props);
-    this.promises = [];
     this.payloads = [];
   }
 
   toJSON = (): Array<any> => this.payloads;
-
-  onFinish = async () => Promise.all(this.promises);
 
   fetch = async (
     request: RequestNode,
@@ -32,10 +28,8 @@ class ServerLink {
     cacheConfig: CacheConfig,
     uploadables?: UploadableMap,
   ): ?Promise<any> => {
-    const promise = this.link.fetch(request, variables, cacheConfig, uploadables);
-    this.promises.push(promise);
+    const payload = await this.link.fetch(request, variables, cacheConfig, uploadables);
 
-    const payload = await promise;
     this.payloads.push(payload);
 
     return payload;

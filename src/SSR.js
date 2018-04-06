@@ -11,7 +11,7 @@ class SSR {
   queries: Array<ConcreteRequest>;
 
   constructor(queries: Array<ConcreteRequest>) {
-    invariant(queries, 'Link: missing queries');
+    invariant(queries, 'SSR: missing queries');
 
     this.environment = getEnvironment();
     this.queries = queries;
