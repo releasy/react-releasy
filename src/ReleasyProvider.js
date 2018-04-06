@@ -4,18 +4,14 @@ import * as PropTypes from 'prop-types';
 import { Environment } from 'relay-runtime';
 import invariant from 'invariant';
 
-import createEnvironment from './relay/createEnvironment';
-import Config from './Config';
-import { setEnvironment, getEnvironment } from './store';
+import { getEnvironment } from './store';
 
 type Props = {
-  config: Config,
   children: React.Node,
 };
 
 class ReleasyProvider extends React.PureComponent<Props> {
   static propTypes = {
-    config: PropTypes.instanceOf(Config).isRequired,
     children: PropTypes.element.isRequired,
   };
 
@@ -24,12 +20,9 @@ class ReleasyProvider extends React.PureComponent<Props> {
   };
 
   constructor(props: Props) {
-    invariant(props.config, 'ReleasyProvider: missing "config"');
     invariant(props.children, 'ReleasyProvider: missing "children"');
 
     super(props);
-
-    setEnvironment(createEnvironment(props.config));
   }
 
   getChildContext() {
