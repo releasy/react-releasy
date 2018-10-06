@@ -6,16 +6,20 @@ type ReleasyConsumerPropsType = {
   children: React.ReactNode,
 };
 
-const ReleasyConsumer = ({
-  children,
-}: ReleasyConsumerPropsType): React.ReactElement<GlobalContextValueType> => (
-  <GlobalContext.Consumer>
-    {(globalContextValue: GlobalContextValueType) =>
-      React.Children.map(children, (child: React.ReactElement<any>) =>
-        React.cloneElement(child, globalContextValue),
-      )
-    }
-  </GlobalContext.Consumer>
-);
+class ReleasyConsumer extends React.PureComponent<ReleasyConsumerPropsType> {
+  render() {
+    const { children } = this.props;
+
+    return (
+      <GlobalContext.Consumer>
+        {(globalContextValue: GlobalContextValueType) =>
+          React.Children.map(children, (child: React.ReactElement<any>) =>
+            React.cloneElement(child, globalContextValue),
+          )
+        }
+      </GlobalContext.Consumer>
+    );
+  }
+}
 
 export default ReleasyConsumer;

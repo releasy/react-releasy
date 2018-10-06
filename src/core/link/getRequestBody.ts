@@ -10,9 +10,7 @@ const getRequestBodyWithUploadables = (
   formData.append('variables', JSON.stringify(variables));
 
   Object.keys(uploadables).forEach((key) => {
-    if (Object.prototype.hasOwnProperty.call(uploadables, key)) {
-      formData.append(key, uploadables[key]);
-    }
+    formData.append(key, uploadables[key]);
   });
 
   return formData;
@@ -28,7 +26,7 @@ const getRequestBodyWithoutUplodables = (request: RequestNode, variables: Variab
 const getRequestBody = (
   request: RequestNode,
   variables: Variables,
-  uploadables: UploadableMap,
+  uploadables?: UploadableMap,
 ): FormData | string => {
   if (uploadables) {
     return getRequestBodyWithUploadables(request, variables, uploadables);

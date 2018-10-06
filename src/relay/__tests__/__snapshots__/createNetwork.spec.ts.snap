@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create Network with cache 1`] = `
+Object {
+  "execute": [Function],
+  "executeWithEvents": [Function],
+}
+`;
+
+exports[`should create Network with networkLogger 1`] = `
+Object {
+  "execute": [Function],
+  "executeWithEvents": [Function],
+}
+`;
+
+exports[`should create default Network 1`] = `
+Object {
+  "execute": [Function],
+  "executeWithEvents": [Function],
+}
+`;
