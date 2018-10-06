@@ -1,7 +1,8 @@
 .DS_Store
-npm-debug.log
+.idea/
+.vscode/
+
 node_modules
-.idea
-coverage
-lib
-__generated__/
+npm-debug.log
+
+lib/

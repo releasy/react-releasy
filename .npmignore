@@ -1,7 +1,0 @@
-.DS_Store
-npm-debug.log
-node_modules
-.idea
-coverage
-docs
-__generated__/

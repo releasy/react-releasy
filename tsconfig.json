@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "target": "es5",
+    "module": "es2015",
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "lib": ["es2015", "dom"]
+  }
+}
