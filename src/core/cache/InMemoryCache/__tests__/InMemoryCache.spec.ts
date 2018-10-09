@@ -1,4 +1,4 @@
-import { delay } from '../../../../tests/utils';
+import { delay } from '../../../../../tests/utils';
 
 import InMemoryCache from '../InMemoryCache';
 

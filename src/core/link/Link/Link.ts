@@ -2,11 +2,11 @@ import { CacheConfig, RequestNode, UploadableMap, Variables, GraphQLResponse } f
 import invariant from 'invariant';
 import fetchWithRetries from 'fbjs/lib/fetchWithRetries';
 
-import { LinkInterface } from '../Config';
+import { LinkInterface } from '../../Config';
 import getHeaders from './getHeaders';
 import getRequestBody from './getRequestBody';
 
-type LinkProps = {
+export type LinkProps = {
   url: string,
   fetchTimeout?: number,
   retryDelays?: number[],
@@ -20,8 +20,8 @@ class Link implements LinkInterface {
   headers: Object | Function;
 
   constructor(props: LinkProps) {
-    invariant(props, 'Fetch: missing props');
-    invariant(props.url, 'Fetch: missing "url"');
+    invariant(props, 'Link: missing props');
+    invariant(props.url, 'Link: missing "url"');
 
     this.url = props.url;
     this.headers = props.headers || {};

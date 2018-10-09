@@ -4,6 +4,7 @@ export { default as ReleasyProvider } from './components/ReleasyProvider';
 
 export { getConfig, getEnvironment } from './contexts/GlobalContext';
 
-export { default as InMemoryCache } from './core/cache/InMemoryCache';
-export { default as Link } from './core/link/Link';
+export { default as InMemoryCache } from './core/cache/InMemoryCache/InMemoryCache';
+export { default as Link } from './core/link/Link/Link';
+export { default as VCR } from './core/link/VCR/VCR';
 export { default as Config, LinkInterface, CacheInterface } from './core/Config';

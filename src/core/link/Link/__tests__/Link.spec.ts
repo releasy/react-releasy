@@ -6,7 +6,7 @@ import {
   createQueryResponse,
   createUploadables,
   createVariables,
-} from '../../../../tests/fixtures/relay';
+} from '../../../../../tests/fixtures/relay';
 
 import Link from '../Link';
 
@@ -29,13 +29,13 @@ it('should fetch default data', async () => {
     },
   );
 
-  const link = new Link({
-    url: '/graphql',
-  });
-
   const request = createQueryRequest();
   const variables = createVariables();
   const cacheConfig = createCacheConfig();
+
+  const link = new Link({
+    url: '/graphql',
+  });
 
   const data = await link.fetch(request, variables, cacheConfig);
 
@@ -53,14 +53,14 @@ it('should fetch data with uploadables', async () => {
     },
   );
 
-  const link = new Link({
-    url: '/graphql',
-  });
-
   const request = createMutationRequest();
   const variables = createVariables();
   const cacheConfig = createCacheConfig();
   const uploadables = createUploadables();
+
+  const link = new Link({
+    url: '/graphql',
+  });
 
   const data = await link.fetch(request, variables, cacheConfig, uploadables);
 
@@ -78,14 +78,14 @@ it('should use custom headers', async () => {
     },
   );
 
+  const request = createQueryRequest();
+  const variables = createVariables();
+  const cacheConfig = createCacheConfig();
+
   const link = new Link({
     url: '/graphql',
     headers: () => ({ john: 'doe' }),
   });
-
-  const request = createQueryRequest();
-  const variables = createVariables();
-  const cacheConfig = createCacheConfig();
 
   const data = await link.fetch(request, variables, cacheConfig);
 

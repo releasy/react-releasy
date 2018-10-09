@@ -1,5 +1,5 @@
-import InMemoryCache from '../cache/InMemoryCache';
-import Link from '../link/Link';
+import InMemoryCache from '../cache/InMemoryCache/InMemoryCache';
+import Link from '../link/Link/Link';
 import Config from '../Config';
 
 it('should create a valid Config', () => {

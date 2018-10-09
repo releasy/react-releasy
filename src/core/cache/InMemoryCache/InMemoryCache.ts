@@ -1,7 +1,7 @@
 import { Variables, GraphQLResponse } from 'relay-runtime';
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache.js';
 
-import { CacheInterface } from '../Config';
+import { CacheInterface } from '../../Config';
 
 type InMemoryCacheProps = {
   ttl?: number,
