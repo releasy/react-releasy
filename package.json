@@ -24,6 +24,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@types/fs-extra": "^5.0.4",
+    "@types/graphql": "^14.0.2",
     "@types/invariant": "^2.2.29",
     "@types/jest": "^23.3.3",
     "@types/node": "^10.11.4",
@@ -46,7 +47,9 @@
   },
   "dependencies": {
     "fs-extra": "^7.0.0",
+    "graphql": "^14.0.2",
     "invariant": "^2.2.4",
+    "node-fetch": "^2.2.0",
     "react": "^16.5.2",
     "react-relay": "^1.6.2",
     "relay-runtime": "^1.7.0-rc.1",
@@ -83,6 +86,7 @@
       "/__tests__/",
       "/coverage/",
       "/lib/",
+      "/tests/",
       "/node_modules/"
     ],
     "watchPathIgnorePatterns": [

@@ -8,3 +8,5 @@ export { default as InMemoryCache } from './core/cache/InMemoryCache/InMemoryCac
 export { default as Link } from './core/link/Link/Link';
 export { default as VCR } from './core/link/VCR/VCR';
 export { default as Config, LinkInterface, CacheInterface } from './core/Config';
+
+export { default as fetchSchema } from './utils/fetchSchema';
