@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should create a valid default VCR 1`] = `
+exports[`should create a valid VCR 1`] = `
 VCR {
   "autoMode": [Function],
   "fetch": [Function],
@@ -19,6 +19,11 @@ VCR {
   "mode": "Auto",
   "recordMode": [Function],
   "replayMode": [Function],
+  "shelf": VCRNodeShelf {
+    "exists": [Function],
+    "get": [Function],
+    "set": [Function],
+  },
 }
 `;
 
@@ -52,6 +57,11 @@ VCR {
   "mode": "Record",
   "recordMode": [Function],
   "replayMode": [Function],
+  "shelf": VCRNodeShelf {
+    "exists": [Function],
+    "get": [Function],
+    "set": [Function],
+  },
 }
 `;
 
@@ -85,6 +95,11 @@ VCR {
   "mode": "Replay",
   "recordMode": [Function],
   "replayMode": [Function],
+  "shelf": VCRNodeShelf {
+    "exists": [Function],
+    "get": [Function],
+    "set": [Function],
+  },
 }
 `;
 

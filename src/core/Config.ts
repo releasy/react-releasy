@@ -14,6 +14,7 @@ export interface CacheInterface {
   get: (queryID: string, variables: Variables) => GraphQLResponse;
   set: (queryID: string, variables: Variables, payload: GraphQLResponse) => void;
   clear: () => void;
+  size: () => number;
 }
 
 type ConfigPropsType = {

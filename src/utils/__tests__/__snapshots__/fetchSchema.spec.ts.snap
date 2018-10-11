@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should fetch the schema 1`] = `
+Object {
+  "path": "./tests/data/schema.graphql",
+}
+`;
+
+exports[`should thrown an error on a non node environment 1`] = `"Node.JS environments only!"`;

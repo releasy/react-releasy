@@ -1,8 +1,9 @@
 import { CacheConfig, RequestNode, UploadableMap, Variables, GraphQLResponse } from 'relay-runtime';
 
+import { IS_NODE } from '../../../utils/constants';
 import { LinkInterface } from '../../Config';
-import Link, { LinkProps } from '../Link/Link';
-import { hasExistingRecord, readRecord, writeRecord } from './records';
+import Link, { LinkPropsType } from '../Link/Link';
+import getHash from './getHash';
 
 enum VCRMode {
   AUTO = 'Auto',
@@ -10,19 +11,40 @@ enum VCRMode {
   REPLAY = 'Replay',
 }
 
-type VCRProps = LinkProps & {
+export interface VCRShelfInterface {
+  get(key: string): Promise<GraphQLResponse>;
+  set(key: string, data: GraphQLResponse): Promise<void>;
+  exists(key: string): Promise<boolean>;
+}
+
+type VCRPropsType = LinkPropsType & {
   mode?: VCRMode,
 };
 
 class VCR implements LinkInterface {
   static MODE = VCRMode;
 
-  mode: VCRMode;
   link: Link;
+  mode: VCRMode;
+  shelf: VCRShelfInterface;
 
-  constructor({ mode, ...linkProps }: VCRProps) {
-    this.mode = mode || VCRMode.AUTO;
+  constructor({ mode, ...linkProps }: VCRPropsType) {
     this.link = new Link(linkProps);
+    this.mode = mode || VCRMode.AUTO;
+
+    const importAndCreateShelf = (): VCRShelfInterface => {
+      if (IS_NODE) {
+        const VCRNodeShelf = require('./VCRNodeShelf').default;
+        const shelf = new VCRNodeShelf();
+        return shelf;
+      }
+
+      const VCRNodeShelf = require('./VCRBrowserShelf').default;
+      const shelf = new VCRNodeShelf();
+      return shelf;
+    };
+
+    this.shelf = importAndCreateShelf();
   }
 
   recordMode = async (
@@ -33,7 +55,8 @@ class VCR implements LinkInterface {
   ): Promise<GraphQLResponse> => {
     const data = await this.link.fetch(request, variables, cacheConfig, uploadables);
 
-    writeRecord(request, variables, data);
+    const hash = getHash(request, variables);
+    await this.shelf.set(hash, data);
 
     return data;
   }
@@ -41,12 +64,12 @@ class VCR implements LinkInterface {
   replayMode = async (
     request: RequestNode,
     variables: Variables,
+    cacheConfig: CacheConfig,
+    uploadables?: UploadableMap,
   ): Promise<GraphQLResponse> => {
-    const data = await readRecord(request, variables);
+    const hash = getHash(request, variables);
 
-    writeRecord(request, variables, data);
-
-    return data;
+    return this.shelf.get(hash);
   }
 
   autoMode = async (
@@ -55,9 +78,11 @@ class VCR implements LinkInterface {
     cacheConfig: CacheConfig,
     uploadables?: UploadableMap,
   ): Promise<GraphQLResponse> => {
-    const hasData = await hasExistingRecord(request, variables);
-    if (hasData) {
-      return this.replayMode(request, variables);
+    const hash = getHash(request, variables);
+
+    const exists = await this.shelf.exists(hash);
+    if (exists) {
+      return this.replayMode(request, variables, cacheConfig, uploadables);
     }
 
     return this.recordMode(request, variables, cacheConfig, uploadables);
@@ -74,7 +99,7 @@ class VCR implements LinkInterface {
     }
 
     if (this.mode === VCRMode.REPLAY) {
-      return this.replayMode(request, variables);
+      return this.replayMode(request, variables, cacheConfig, uploadables);
     }
 
     return this.autoMode(request, variables, cacheConfig, uploadables);

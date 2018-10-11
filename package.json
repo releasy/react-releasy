@@ -14,6 +14,9 @@
     "url": "git+https://github.com/releasy/react-releasy"
   },
   "main": "lib/index.js",
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
@@ -23,7 +26,6 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@types/fs-extra": "^5.0.4",
     "@types/graphql": "^14.0.2",
     "@types/invariant": "^2.2.29",
     "@types/jest": "^23.3.3",
@@ -33,25 +35,29 @@
     "@types/react-relay": "^1.3.9",
     "@types/relay-runtime": "^1.3.6",
     "@types/string-hash": "^1.1.1",
+    "babel-core": "^7.0.0-bridge",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-relay": "^1.7.0-rc.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "graphql-compiler": "^1.6.2",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
     "react-dom": "^16.5.2",
-    "relay-compiler": "^1.6.2",
+    "relay-compiler": "^1.7.0-rc.1",
+    "relay-compiler-language-typescript": "^1.1.1",
     "relay-devtools": "^1.4.0",
-    "ts-jest": "^23.10.3",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0",
     "typescript": "^3.1.1"
   },
   "dependencies": {
-    "fs-extra": "^7.0.0",
     "graphql": "^14.0.2",
     "invariant": "^2.2.4",
-    "node-fetch": "^2.2.0",
+    "local-storage-fallback": "^4.1.1",
     "react": "^16.5.2",
-    "react-relay": "^1.6.2",
+    "react-relay": "^1.7.0-rc.1",
     "relay-runtime": "^1.7.0-rc.1",
     "string-hash": "^1.1.3",
     "tslib": "^1.9.3"
@@ -59,11 +65,12 @@
   "scripts": {
     "build": "npx tsc --noEmit --pretty && npx babel --extensions '.ts,.tsx' --source-maps --out-dir lib src",
     "test": "jest --coverage --runInBand --forceExit",
-    "test:watch": "jest --watchAll --coverage"
+    "test:watch": "jest --watchAll --coverage",
+    "relay": "relay-compiler --src ./tests/components --schema tests/data/schema.graphql --language typescript"
   },
   "jest": {
     "transform": {
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "moduleFileExtensions": [

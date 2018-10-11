@@ -3,7 +3,7 @@ import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache.j
 
 import { CacheInterface } from '../../Config';
 
-type InMemoryCacheProps = {
+type InMemoryCachePropsType = {
   ttl?: number,
   size?: number,
 };
@@ -11,7 +11,7 @@ type InMemoryCacheProps = {
 class InMemoryCache implements CacheInterface {
   store: RelayQueryResponseCache;
 
-  constructor(props?: InMemoryCacheProps) {
+  constructor(props?: InMemoryCachePropsType) {
     this.store = new RelayQueryResponseCache({
       size: props && props.size ? props.size : 250,
       ttl: props && props.ttl ? props.ttl : 60 * 1000 * 5, // default = 5 minutes
@@ -28,6 +28,10 @@ class InMemoryCache implements CacheInterface {
 
   clear = (): void => {
     this.store.clear();
+  }
+
+  size = (): number => {
+    return this.store._responses.size;
   }
 }
 

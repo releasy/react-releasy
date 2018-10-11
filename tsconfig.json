@@ -10,7 +10,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "target": "es5",
+    "target": "es2015",
     "module": "es2015",
     "esModuleInterop": true,
     "jsx": "react",

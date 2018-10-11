@@ -1,4 +1,4 @@
-export { default as Query } from './components/Query';
+export { default as Query, QueryChildrenPropsType } from './components/Query';
 export { default as ReleasyConsumer } from './components/ReleasyConsumer';
 export { default as ReleasyProvider } from './components/ReleasyProvider';
 

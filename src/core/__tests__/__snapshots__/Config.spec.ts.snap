@@ -6,6 +6,7 @@ Config {
     "clear": [Function],
     "get": [Function],
     "set": [Function],
+    "size": [Function],
     "store": RelayQueryResponseCache {
       "_responses": Map {},
       "_size": 250,

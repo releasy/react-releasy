@@ -5,12 +5,13 @@ import {
   createVariables,
 } from '../../../../../tests/fixtures/relay';
 
-import { clearRecords, readRecord } from '../records';
+import getHash from '../getHash';
 import VCR from '../VCR';
 
-beforeEach(clearRecords);
+it('should create a valid VCR', () => {
+  const CONSTANTS = require('../../../../utils/constants');
+  CONSTANTS.IS_NODE = false;
 
-it('should create a valid default VCR', () => {
   const vcr = new VCR({
     url: '/graphql',
   });
@@ -32,6 +33,7 @@ it('should save data on record mode and retrieve data on replay mode', async () 
   const request = createQueryRequest();
   const variables = createVariables();
   const cacheConfig = createCacheConfig();
+  const hash = getHash(request, variables);
 
   const vcrWithRecordMode = new VCR({
     url: '/graphql',
@@ -41,7 +43,7 @@ it('should save data on record mode and retrieve data on replay mode', async () 
   expect(vcrWithRecordMode).toMatchSnapshot();
 
   const recordFetchData = await vcrWithRecordMode.fetch(request, variables, cacheConfig);
-  const recordCacheData = await readRecord(request, variables);
+  const recordCacheData = await vcrWithRecordMode.shelf.get(hash);
 
   expect(recordFetchData).toEqual(recordCacheData);
   expect(recordCacheData).toMatchSnapshot();

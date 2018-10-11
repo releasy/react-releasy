@@ -6,7 +6,7 @@ import { LinkInterface } from '../../Config';
 import getHeaders from './getHeaders';
 import getRequestBody from './getRequestBody';
 
-export type LinkProps = {
+export type LinkPropsType = {
   url: string,
   fetchTimeout?: number,
   retryDelays?: number[],
@@ -19,7 +19,7 @@ class Link implements LinkInterface {
   retryDelays: number[];
   headers: Object | Function;
 
-  constructor(props: LinkProps) {
+  constructor(props: LinkPropsType) {
     invariant(props, 'Link: missing props');
     invariant(props.url, 'Link: missing "url"');
 

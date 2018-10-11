@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a loading Query 1`] = `
+<div>
+  loading
+</div>
+`;
+
+exports[`should render a success Query 1`] = `
+<div>
+  fakeViewerId
+  : 
+  John Doe
+</div>
+`;
+
+exports[`should use a function to create variables 1`] = `
+<div>
+  fakeViewerId
+  : 
+  John Doe
+</div>
+`;

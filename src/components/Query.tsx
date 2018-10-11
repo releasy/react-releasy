@@ -4,7 +4,7 @@ import { GraphQLTaggedNode, Variables } from 'relay-runtime';
 
 import GlobalContext, { GlobalContextValueType } from '../contexts/GlobalContext';
 
-type ChildrenPropsType = {
+export type QueryChildrenPropsType = {
   error?: Error,
   retry: Function,
   isFetching: boolean,
@@ -13,7 +13,7 @@ type ChildrenPropsType = {
 type QueryPropsType = {
   query: GraphQLTaggedNode,
   variables?: Variables | Function,
-  children: (props: ChildrenPropsType) => React.ReactElement<any>,
+  children: (props: QueryChildrenPropsType) => JSX.Element,
 };
 
 const Query = (props: QueryPropsType): React.ReactElement<any> => {
@@ -37,7 +37,7 @@ const Query = (props: QueryPropsType): React.ReactElement<any> => {
               ...queryProps,
               error,
               retry,
-              isFetching: !props && !error,
+              isFetching: !queryProps && !error,
             });
           }}
         />
