@@ -1,4 +1,4 @@
-import { createConfig } from '../../../tests/fixtures/core';
+import { createConfig } from '../../../../tests/fixtures/core';
 
 import createEnvironment from '../createEnvironment';
 

@@ -1,9 +1,9 @@
 import { CacheConfig, RequestNode, UploadableMap, Variables, GraphQLResponse } from 'relay-runtime';
 
 import { IS_NODE } from '../../../utils/constants';
+import { getHash } from '../../../relay/utils';
 import { LinkInterface } from '../../Config';
 import Link, { LinkPropsType } from '../Link/Link';
-import getHash from './getHash';
 
 enum VCRMode {
   AUTO = 'Auto',

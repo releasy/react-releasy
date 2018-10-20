@@ -7,7 +7,7 @@ import GlobalContext, {
   setEnvironment,
 } from '../contexts/GlobalContext';
 import Config from '../core/Config';
-import createEnvironment from '../relay/createEnvironment';
+import createEnvironment from '../relay/environment/createEnvironment';
 
 type ReleasyProviderPropsType = {
   config: Config,

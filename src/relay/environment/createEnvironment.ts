@@ -1,8 +1,8 @@
 import { installRelayDevTools } from 'relay-devtools';
 import { Environment, RecordSource, Store } from 'relay-runtime';
 
-import Config from '../core/Config';
-import createNetwork from './createNetwork';
+import Config from '../../core/Config';
+import createNetwork from '../network/createNetwork';
 
 const createEnvironment = (config: Config): Environment => {
   if (config.devTools) {
@@ -11,8 +11,8 @@ const createEnvironment = (config: Config): Environment => {
 
   const network = createNetwork(config);
 
-  const source = new RecordSource();
-  const store = new Store(source);
+  const recordSource = new RecordSource();
+  const store = new Store(recordSource);
 
   return new Environment({
     network,

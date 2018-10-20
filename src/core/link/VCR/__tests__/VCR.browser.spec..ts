@@ -5,7 +5,7 @@ import {
   createVariables,
 } from '../../../../../tests/fixtures/relay';
 
-import getHash from '../getHash';
+import { getHash } from '../../../../relay/utils';
 import VCR from '../VCR';
 
 it('should create a valid VCR', () => {

@@ -7,7 +7,7 @@ import {
   createVariables,
 } from '../../../../../tests/fixtures/relay';
 
-import getHash from '../getHash';
+import { getHash } from '../../../../relay/utils';
 import { DIR } from '../VCRNodeShelf';
 import VCR from '../VCR';
 

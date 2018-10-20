@@ -1,6 +1,6 @@
-import { createConfig } from '../../../tests/fixtures/core';
+import { createConfig } from '../../../../tests/fixtures/core';
 
-import InMemoryCache from '../../core/cache/InMemoryCache/InMemoryCache';
+import InMemoryCache from '../../../core/cache/InMemoryCache/InMemoryCache';
 import createNetwork from '../createNetwork';
 
 it('should create default Network', () => {

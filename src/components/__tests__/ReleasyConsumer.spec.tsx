@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import { createConfig } from '../../../tests/fixtures/core';
 
-import createEnvironment from '../../relay/createEnvironment';
+import createEnvironment from '../../relay/environment/createEnvironment';
 import ReleasyConsumer from '../ReleasyConsumer';
 
 it('should render a valid ReleasyConsumer', () => {
