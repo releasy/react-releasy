@@ -15,7 +15,8 @@
   },
   "main": "lib/index.js",
   "resolutions": {
-    "babel-core": "^7.0.0-bridge"
+    "babel-core": "^7.0.0-bridge",
+    "react-relay": "https://github.com/releasy/relay/releases/download/1.7.0-rc.1-releasy/react-relay-1.7.0-rc.1-releasy.tgz"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -57,7 +58,7 @@
     "invariant": "^2.2.4",
     "local-storage-fallback": "^4.1.1",
     "react": "^16.5.2",
-    "react-relay": "^1.7.0-rc.1",
+    "react-relay": "https://github.com/releasy/relay/releases/download/1.7.0-rc.1-releasy/react-relay-1.7.0-rc.1-releasy.tgz",
     "relay-runtime": "^1.7.0-rc.1",
     "string-hash": "^1.1.3",
     "tslib": "^1.9.3"

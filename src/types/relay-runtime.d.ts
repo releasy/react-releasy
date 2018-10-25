@@ -1,9 +1,21 @@
 import { PayloadData, PaylodError } from 'relay-runtime';
 
 declare module 'relay-runtime' {
-  // https://github.com/facebook/relay/blob/master/packages/relay-runtime/network/RelayNetworkTypes.js#L45
   export type GraphQLResponse = {
     data: PayloadData,
     errors?: Array<PayloadError>,
   };
+
+  export type Sink<T> = {
+    next: (t?: T) => void,
+    error: (error: Error, isUncaughtThrownError?: boolean) => void,
+    complete: () => void,
+    closed: boolean,
+  };
+
+  export class RelayObservable<T> {
+    static create<V>(sink: Sink<V>): RelayObservable<V>;
+  }
+
+  export var Observable: RelayObservable;
 }

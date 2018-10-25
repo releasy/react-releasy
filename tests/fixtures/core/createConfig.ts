@@ -5,6 +5,7 @@ import createLink from './createLink';
 type CreateConfigInput = {
   link?: LinkInterface,
   cache?: CacheInterface,
+  ssrMode?: boolean,
   devTools?: boolean,
   networkLogger?: boolean,
 };

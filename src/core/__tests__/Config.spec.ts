@@ -28,3 +28,16 @@ it('should create a Config with cache', () => {
 
   expect(config).toMatchSnapshot();
 });
+
+it('should create a Config with ssrMode', () => {
+  const link = new Link({
+    url: '/graphql',
+  });
+
+  const config = new Config({
+    link,
+    ssrMode: true,
+  });
+
+  expect(config).toMatchSnapshot();
+});

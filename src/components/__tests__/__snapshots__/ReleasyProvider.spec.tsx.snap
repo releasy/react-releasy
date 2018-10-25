@@ -17,6 +17,7 @@ Config {
     "url": "/graphql",
   },
   "networkLogger": false,
+  "ssrMode": false,
 }
 `;
 
@@ -92,6 +93,7 @@ ReleasyProvider {
         "url": "/graphql",
       },
       "networkLogger": false,
+      "ssrMode": false,
     },
   },
   "refs": Object {},
@@ -114,6 +116,7 @@ ReleasyProvider {
           "url": "/graphql",
         },
         "networkLogger": false,
+        "ssrMode": false,
       },
       "environment": RelayModernEnvironment {
         "__setNet": [Function],
@@ -187,6 +190,7 @@ ReleasyProvider {
               "url": "/graphql",
             },
             "networkLogger": false,
+            "ssrMode": false,
           }
         }
       >
@@ -214,6 +218,7 @@ ReleasyProvider {
                 "url": "/graphql",
               },
               "networkLogger": false,
+              "ssrMode": false,
             },
             "environment": RelayModernEnvironment {
               "__setNet": [Function],

@@ -20,6 +20,7 @@ export interface CacheInterface {
 type ConfigPropsType = {
   link: LinkInterface,
   cache?: CacheInterface,
+  ssrMode?: boolean,
   devTools?: boolean,
   networkLogger?: boolean,
 };
@@ -27,6 +28,7 @@ type ConfigPropsType = {
 class Config {
   link: LinkInterface;
   cache: CacheInterface;
+  ssrMode: boolean;
   devTools: boolean;
   networkLogger: boolean;
 
@@ -36,6 +38,7 @@ class Config {
 
     this.link = props.link;
     this.cache = props.cache || null;
+    this.ssrMode = props.ssrMode || false;
     this.devTools = props.devTools || false;
     this.networkLogger = props.networkLogger || false;
   }

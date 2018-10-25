@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should get data from tree 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "me": Object {
+        "id": "fakeViewerId",
+        "name": "John Doe",
+      },
+    },
+    "dataID": "client:root",
+    "node": Object {
+      "argumentDefinitions": Array [],
+      "kind": "Fragment",
+      "metadata": null,
+      "name": "MeQuery",
+      "selections": Array [
+        Object {
+          "alias": null,
+          "args": null,
+          "concreteType": "User",
+          "kind": "LinkedField",
+          "name": "me",
+          "plural": false,
+          "selections": Array [
+            Object {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "id",
+              "storageKey": null,
+            },
+            Object {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "name",
+              "storageKey": null,
+            },
+          ],
+          "storageKey": null,
+        },
+      ],
+      "type": "Query",
+    },
+    "seenRecords": Object {
+      "client:root": Object {
+        "__id": "client:root",
+        "__typename": "__Root",
+        "me": Object {
+          "__ref": "fakeViewerId",
+        },
+      },
+      "fakeViewerId": Object {
+        "__id": "fakeViewerId",
+        "__typename": "User",
+        "id": "fakeViewerId",
+        "name": "John Doe",
+      },
+    },
+    "variables": Object {},
+  },
+]
+`;
+
+exports[`should walk class component 1`] = `
+Array [
+  "React.ComponentClass",
+  "React.DOMElement",
+]
+`;
+
+exports[`should walk class component with UNSAFE_componentWillMount 1`] = `
+Array [
+  "React.ComponentClass",
+  "React.DOMElement",
+]
+`;
+
+exports[`should walk class component with componentWillMount 1`] = `
+Array [
+  "React.ComponentClass",
+  "React.DOMElement",
+]
+`;
+
+exports[`should walk class component with getDerivedStateFromProps 1`] = `
+Array [
+  "React.ComponentClass",
+  "React.DOMElement",
+]
+`;
+
+exports[`should walk context 1`] = `
+Array [
+  "React.Provider",
+  "React.Consumer",
+  "React.DOMElement",
+  "React.DOMElement",
+]
+`;
+
+exports[`should walk stateless component 1`] = `
+Array [
+  "React.SFC",
+  "React.DOMElement",
+]
+`;
