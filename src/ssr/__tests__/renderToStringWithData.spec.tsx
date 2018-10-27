@@ -22,13 +22,13 @@ it('should render to string with data', async () => {
 
   const config = createConfig({ ssrMode: true });
 
-  const html = await renderToStringWithData(
+  const result = await renderToStringWithData(
     <ReleasyProvider config={config}>
       <MeQuery />
     </ReleasyProvider>,
   );
 
-  expect(html).toMatchSnapshot();
+  expect(result).toMatchSnapshot();
 });
 
 it('should hydrate with data', async () => {
@@ -46,13 +46,13 @@ it('should hydrate with data', async () => {
 
   const serverConfig = createConfig({ ssrMode: true });
 
-  const html = await renderToStringWithData(
+  const { html, scripts } = await renderToStringWithData(
     <ReleasyProvider config={serverConfig}>
       <MeQuery />
     </ReleasyProvider>,
   );
 
-  const data = html.match(new RegExp('<script[^>]*>(.*?)</script[^>]*>'))[1].split(' = ').pop();
+  const data = scripts.match(new RegExp('<script[^>]*>(.*?)</script[^>]*>'))[1].split(' = ').pop();
   window[WINDOW_DATA_KEY] = JSON.parse(data);
 
   rootElement.innerHTML = html;

@@ -19,13 +19,13 @@ class FetchResolver implements NetworkResolverInterface {
     this.config = config;
   }
 
-  resolve = async (
+  async resolve(
     request: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
     uploadables: UploadableMap,
     sink: Sink<GraphQLResponse>,
-  ) => {
+  ) {
     const fetchFn = this.config.networkLogger
       ? RelayNetworkLogger.wrapFetch(this.config.link.fetch)
       : this.config.link.fetch;

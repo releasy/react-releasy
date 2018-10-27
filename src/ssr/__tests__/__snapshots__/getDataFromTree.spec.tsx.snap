@@ -9,164 +9,88 @@ Array [
         "name": "John Doe",
       },
     },
-    "operation": Object {
+    "request": Object {
       "fragment": Object {
-        "dataID": "client:root",
-        "node": Object {
-          "argumentDefinitions": Array [],
-          "kind": "Fragment",
-          "metadata": null,
-          "name": "MeQuery",
-          "selections": Array [
-            Object {
-              "alias": null,
-              "args": null,
-              "concreteType": "User",
-              "kind": "LinkedField",
-              "name": "me",
-              "plural": false,
-              "selections": Array [
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null,
-                },
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "name",
-                  "storageKey": null,
-                },
-              ],
-              "storageKey": null,
-            },
-          ],
-          "type": "Query",
-        },
-        "variables": Object {},
-      },
-      "node": Object {
-        "fragment": Object {
-          "argumentDefinitions": Array [],
-          "kind": "Fragment",
-          "metadata": null,
-          "name": "MeQuery",
-          "selections": Array [
-            Object {
-              "alias": null,
-              "args": null,
-              "concreteType": "User",
-              "kind": "LinkedField",
-              "name": "me",
-              "plural": false,
-              "selections": Array [
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null,
-                },
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "name",
-                  "storageKey": null,
-                },
-              ],
-              "storageKey": null,
-            },
-          ],
-          "type": "Query",
-        },
-        "hash": "bce9f1cc4614c3f306814d78c53b009b",
-        "id": null,
-        "kind": "Request",
-        "metadata": Object {},
+        "argumentDefinitions": Array [],
+        "kind": "Fragment",
+        "metadata": null,
         "name": "MeQuery",
-        "operation": Object {
-          "argumentDefinitions": Array [],
-          "kind": "Operation",
-          "name": "MeQuery",
-          "selections": Array [
-            Object {
-              "alias": null,
-              "args": null,
-              "concreteType": "User",
-              "kind": "LinkedField",
-              "name": "me",
-              "plural": false,
-              "selections": Array [
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null,
-                },
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "name",
-                  "storageKey": null,
-                },
-              ],
-              "storageKey": null,
-            },
-          ],
-        },
-        "operationKind": "query",
-        "text": "query MeQuery {
+        "selections": Array [
+          Object {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "me",
+            "plural": false,
+            "selections": Array [
+              Object {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null,
+              },
+              Object {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null,
+              },
+            ],
+            "storageKey": null,
+          },
+        ],
+        "type": "Query",
+      },
+      "hash": "bce9f1cc4614c3f306814d78c53b009b",
+      "id": null,
+      "kind": "Request",
+      "metadata": Object {},
+      "name": "MeQuery",
+      "operation": Object {
+        "argumentDefinitions": Array [],
+        "kind": "Operation",
+        "name": "MeQuery",
+        "selections": Array [
+          Object {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "me",
+            "plural": false,
+            "selections": Array [
+              Object {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null,
+              },
+              Object {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null,
+              },
+            ],
+            "storageKey": null,
+          },
+        ],
+      },
+      "operationKind": "query",
+      "text": "query MeQuery {
   me {
     id
     name
   }
 }
 ",
-      },
-      "root": Object {
-        "dataID": "client:root",
-        "node": Object {
-          "argumentDefinitions": Array [],
-          "kind": "Operation",
-          "name": "MeQuery",
-          "selections": Array [
-            Object {
-              "alias": null,
-              "args": null,
-              "concreteType": "User",
-              "kind": "LinkedField",
-              "name": "me",
-              "plural": false,
-              "selections": Array [
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null,
-                },
-                Object {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "name",
-                  "storageKey": null,
-                },
-              ],
-              "storageKey": null,
-            },
-          ],
-        },
-        "variables": Object {},
-      },
-      "variables": Object {},
     },
+    "variables": undefined,
   },
 ]
 `;

@@ -208,9 +208,8 @@ export const walkTree = (
 // @TODO - improve this later
 const resolveRelayQueryRenderer = (instance: React.Component<any>) => {
   const { environment, query, variables } = instance.props;
-  const { getRequest, createOperationSelector } = environment.unstable_internal;
+  const { getRequest } = environment.unstable_internal;
   const request = getRequest(query);
-  const operation = createOperationSelector(request, variables);
 
   return new Promise((resolve) => {
     const interval = setInterval(
@@ -223,7 +222,7 @@ const resolveRelayQueryRenderer = (instance: React.Component<any>) => {
         const { data } = _snapshot;
 
         clearInterval(interval);
-        resolve({ operation, data });
+        resolve({ request, variables, data });
       },
       0,
     );

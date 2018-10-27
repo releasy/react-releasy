@@ -47,12 +47,9 @@ const createNetwork = (config: Config): Network => {
         _sink.next();
       }).subscribe({
         next: (_data: GraphQLResponse) => {
-          if (data) {
-            return;
-          }
-
           if (_data) {
             data = _data;
+            return;
           }
 
           currentResolver += 1;

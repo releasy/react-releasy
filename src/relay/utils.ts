@@ -8,7 +8,7 @@ export const mustForceFetch = (cacheConfig: CacheConfig) => !!(cacheConfig && ca
 
 export const getHash = (request: RequestNode, variables: Variables): string => {
   const copy = stableCopy({
-    variables,
+    variables: variables || {},
     query: request.text,
   });
 

@@ -18,13 +18,13 @@ class CacheResolver implements NetworkResolverInterface {
     this.config = config;
   }
 
-  resolve = (
+  resolve(
     request: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
     uploadables: UploadableMap,
     sink: Sink<GraphQLResponse>,
-  ) => {
+  ) {
     if (isMutation(request)) {
       sink.next();
       return;
