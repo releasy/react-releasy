@@ -110,6 +110,7 @@ const handleClassComponent = async (
 
   const instance = new type(props, context);
 
+  instance.context = instance.context || context;
   instance.state = instance.state || null;
 
   instance.setState = (state) => {
@@ -206,26 +207,23 @@ export const walkTree = (
 
 // @TODO - improve this later
 const resolveRelayQueryRenderer = (instance: React.Component<any>) => {
-  const getData = () => {
-    const { _snapshot } = (instance.state as any).queryFetcher;
-    return _snapshot;
-  };
+  const { environment, query, variables } = instance.props;
+  const { getRequest, createOperationSelector } = environment.unstable_internal;
+  const request = getRequest(query);
+  const operation = createOperationSelector(request, variables);
 
   return new Promise((resolve) => {
-    const data = getData();
-    if (!!data) {
-      resolve(data);
-    }
-
     const interval = setInterval(
       () => {
-        const data = getData();
-        if (!data) {
+        const { _snapshot } = (instance.state as any).queryFetcher;
+        if (!_snapshot) {
           return;
         }
 
+        const { data } = _snapshot;
+
         clearInterval(interval);
-        resolve(data);
+        resolve({ operation, data });
       },
       0,
     );

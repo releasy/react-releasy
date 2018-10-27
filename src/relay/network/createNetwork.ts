@@ -12,6 +12,7 @@ import {
 import Config from '../../core/Config';
 import CacheResolver from './CacheResolver';
 import FetchResolver from './FetchResolver';
+import SSRResolver from './SSRResolver';
 
 export interface NetworkResolverInterface {
   resolve(
@@ -25,6 +26,7 @@ export interface NetworkResolverInterface {
 
 const createNetwork = (config: Config): Network => {
   const resolvers: NetworkResolverInterface[] = [
+    new SSRResolver(),
     new CacheResolver(config),
     new FetchResolver(config),
   ];
@@ -45,6 +47,10 @@ const createNetwork = (config: Config): Network => {
         _sink.next();
       }).subscribe({
         next: (_data: GraphQLResponse) => {
+          if (data) {
+            return;
+          }
+
           if (_data) {
             data = _data;
           }

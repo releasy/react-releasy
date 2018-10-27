@@ -22,6 +22,9 @@ afterEach(() => {
 });
 
 it('should create a valid VCR', () => {
+  const CONSTANTS = require('../../../../utils/constants');
+  CONSTANTS.IS_NODE = true;
+
   const vcr = new VCR({
     url: '/graphql',
   });

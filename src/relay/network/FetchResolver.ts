@@ -27,8 +27,8 @@ class FetchResolver implements NetworkResolverInterface {
     sink: Sink<GraphQLResponse>,
   ) => {
     const fetchFn = this.config.networkLogger
-    ? RelayNetworkLogger.wrapFetch(this.config.link.fetch)
-    : this.config.link.fetch;
+      ? RelayNetworkLogger.wrapFetch(this.config.link.fetch)
+      : this.config.link.fetch;
 
     try {
       if (isMutation(request) && !!this.config.cache) {

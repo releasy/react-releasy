@@ -2,6 +2,9 @@ import fetchSchema from '../fetchSchema';
 import fs from 'fs';
 
 it('should fetch the schema', async () => {
+  const CONSTANTS = require('../../utils/constants');
+  CONSTANTS.IS_NODE = true;
+
   const json = require('../../../tests/data/schema.json');
 
   global.fetch.mockResponseOnce(
