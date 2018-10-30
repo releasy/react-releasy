@@ -205,27 +205,24 @@ export const walkTree = (
   return handler(element, context, visitor);
 };
 
-// @TODO - improve this later
 const resolveRelayQueryRenderer = (instance: React.Component<any>) => {
   const { environment, query, variables } = instance.props;
   const { getRequest } = environment.unstable_internal;
   const request = getRequest(query);
+  const queryFetcher = (instance.state as any).queryFetcher;
 
-  return new Promise((resolve) => {
-    const interval = setInterval(
-      () => {
-        const { _snapshot } = (instance.state as any).queryFetcher;
-        if (!_snapshot) {
-          return;
-        }
+  return new Promise((resolve, reject) => {
+    if (queryFetcher._snapshot) {
+      return resolve({ request, variables, data: queryFetcher._snapshot.data });
+    }
 
-        const { data } = _snapshot;
+    queryFetcher._fetchOptions.onDataChangeCallbacks.push(({ error, snapshot }) => {
+      if (error) {
+        return reject(error);
+      }
 
-        clearInterval(interval);
-        resolve({ request, variables, data });
-      },
-      0,
-    );
+      resolve({ request, variables, data: snapshot.data });
+    });
   });
 };
 
