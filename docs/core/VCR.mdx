@@ -1,0 +1,34 @@
+---
+name: VCR
+menu: Core
+route: /core/vcr
+---
+
+# VCR
+
+A class able to record and replay fetching results.
+
+Usefull for testing purpouses, it will record all HTTP requests and replay on the later ones.
+
+## Usage
+
+```javascript
+import { VCR } from 'react-releasy';
+
+const link = new VCR({
+  mode: VCR.MODE.AUTO,
+  url: 'https://yourserveraddress.com/graphql',
+});
+```
+
+## Why should I use VCR?
+
+- Faster (no real HTTP requests are made anymore)
+- Deterministic (the test will continue to pass, even if you are offline, or if the server goes down for maintenance)
+- Accurate (the response will contain the same data you get from a real request)
+
+## Modes
+
+- **VCR.MODE.AUTO**: Record on first execution, replay the later ones.
+- **VCR.MODE.RECORD**: Record all executions. (Overwrite data)
+- **VCR.MODE.REPLAY**: Replay all executions.

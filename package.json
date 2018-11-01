@@ -39,6 +39,9 @@
     "babel-core": "^7.0.0-bridge",
     "babel-jest": "^23.6.0",
     "babel-plugin-relay": "^1.7.0",
+    "docz": "^0.12.9",
+    "docz-plugin-netlify": "^1.1.4",
+    "docz-theme-default": "^0.12.9",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.4",
@@ -65,6 +68,8 @@
   },
   "scripts": {
     "build": "npx tsc --noEmit --pretty && npx babel --extensions '.ts,.tsx' --source-maps --out-dir lib src",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
     "test": "jest --coverage --runInBand --forceExit",
     "test:watch": "jest --watchAll --coverage",
     "relay": "relay-compiler --src ./tests/components --schema tests/data/schema.graphql --language typescript"

@@ -1,0 +1,22 @@
+---
+name: fetchSchema
+menu: Utils
+route: /utils/fetchSchema
+---
+
+# fetchSchema
+
+## Usage
+
+```javascript
+import { fetchSchema } from 'react-releasy';
+
+fetchSchema({
+  url: 'https://yourserveraddress.com/graphql',
+  dir: './data',
+}).then(() => {
+  console.log('Schema downloaded');
+  process.exit();
+});
+
+```

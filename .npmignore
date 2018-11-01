@@ -1,3 +1,4 @@
+.docz
 .DS_Store
 .idea/
 .vscode/
@@ -5,6 +6,9 @@
 node_modules
 npm-debug.log
 
+doczrc.js
+
 __vcr__/
 __generated__/
 coverage/
+docs/
