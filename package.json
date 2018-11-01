@@ -70,9 +70,13 @@
     "build": "npx tsc --noEmit --pretty && npx babel --extensions '.ts,.tsx' --source-maps --out-dir lib src",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
+    "relay": "relay-compiler --src ./tests/components --schema tests/data/schema.graphql --language typescript",
+    "release:prerelease": "npm run test && npm run build && npm version prerelease && git push --follow-tags && npm publish --tag next --access public",
+    "release:patch": "npm run test && npm run build && npm version patch && git push --follow-tags && npm publish --access public",
+    "release:minor": "npm run test && npm run build && npm version minor && git push --follow-tags && npm publish --access public",
+    "release:major": "npm run test && npm run build && npm version major && git push --follow-tags && npm publish --access public",
     "test": "jest --coverage --runInBand --forceExit",
-    "test:watch": "jest --watchAll --coverage",
-    "relay": "relay-compiler --src ./tests/components --schema tests/data/schema.graphql --language typescript"
+    "test:watch": "jest --watchAll --coverage"
   },
   "jest": {
     "transform": {
