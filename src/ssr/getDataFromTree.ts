@@ -8,7 +8,7 @@ export enum ComponentType {
 
 const isContextProvider = (element: React.ReactNode): element is React.Provider<any> => {
   const type = (element as any).type;
-  return !!type && !!type._context;
+  return !!type && !!type._context && !type.Consumer;
 };
 
 const isContextConsumer = (element: React.ReactNode): element is React.Consumer<any> => {

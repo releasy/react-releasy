@@ -16,7 +16,7 @@
   "main": "lib/index.js",
   "resolutions": {
     "babel-core": "^7.0.0-bridge",
-    "react-relay": "https://github.com/releasy/relay/releases/download/1.7.0-rc.1-releasy/react-relay-1.7.0-rc.1-releasy.tgz"
+    "react-relay": "https://github.com/releasy/relay/releases/download/v1.7.0-releasy/react-relay-1.7.0-releasy.tgz"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -38,15 +38,15 @@
     "@types/string-hash": "^1.1.1",
     "babel-core": "^7.0.0-bridge",
     "babel-jest": "^23.6.0",
-    "babel-plugin-relay": "^1.7.0-rc.1",
+    "babel-plugin-relay": "^1.7.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.4",
     "graphql-compiler": "^1.6.2",
     "jest": "^23.6.0",
     "jest-fetch-mock": "^1.6.6",
-    "react-dom": "^16.5.2",
-    "relay-compiler": "^1.7.0-rc.1",
+    "react-dom": "16.5.2",
+    "relay-compiler": "^1.7.0",
     "relay-compiler-language-typescript": "^1.1.1",
     "relay-devtools": "^1.4.0",
     "tslint": "^5.11.0",
@@ -57,9 +57,9 @@
     "graphql": "^14.0.2",
     "invariant": "^2.2.4",
     "local-storage-fallback": "^4.1.1",
-    "react": "^16.5.2",
-    "react-relay": "https://github.com/releasy/relay/releases/download/1.7.0-rc.1-releasy/react-relay-1.7.0-rc.1-releasy.tgz",
-    "relay-runtime": "^1.7.0-rc.1",
+    "react": "16.5.2",
+    "react-relay": "https://github.com/releasy/relay/releases/download/v1.7.0-releasy/react-relay-1.7.0-releasy.tgz",
+    "relay-runtime": "^1.7.0",
     "string-hash": "^1.1.3",
     "tslib": "^1.9.3"
   },
