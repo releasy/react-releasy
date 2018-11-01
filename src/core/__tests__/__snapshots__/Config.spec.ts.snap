@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create a Config with cache 1`] = `
+Config {
+  "cache": InMemoryCache {
+    "clear": [Function],
+    "get": [Function],
+    "set": [Function],
+    "size": [Function],
+    "store": RelayQueryResponseCache {
+      "_responses": Map {},
+      "_size": 250,
+      "_ttl": 300000,
+    },
+  },
+  "devTools": false,
+  "link": Link {
+    "fetch": [Function],
+    "fetchTimeout": 30000,
+    "headers": Object {},
+    "retryDelays": Array [
+      1000,
+      3000,
+      5000,
+      10000,
+    ],
+    "url": "/graphql",
+  },
+  "networkLogger": false,
+  "ssrMode": false,
+}
+`;
+
+exports[`should create a Config with ssrMode 1`] = `
+Config {
+  "cache": null,
+  "devTools": false,
+  "link": Link {
+    "fetch": [Function],
+    "fetchTimeout": 30000,
+    "headers": Object {},
+    "retryDelays": Array [
+      1000,
+      3000,
+      5000,
+      10000,
+    ],
+    "url": "/graphql",
+  },
+  "networkLogger": false,
+  "ssrMode": true,
+}
+`;
+
+exports[`should create a valid Config 1`] = `
+Config {
+  "cache": null,
+  "devTools": false,
+  "link": Link {
+    "fetch": [Function],
+    "fetchTimeout": 30000,
+    "headers": Object {},
+    "retryDelays": Array [
+      1000,
+      3000,
+      5000,
+      10000,
+    ],
+    "url": "/graphql",
+  },
+  "networkLogger": false,
+  "ssrMode": false,
+}
+`;

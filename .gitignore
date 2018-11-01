@@ -1,7 +1,12 @@
+.docz
 .DS_Store
-npm-debug.log
+.idea/
+.vscode/
+
 node_modules
-.idea
-coverage
-lib
+npm-debug.log
+
+__vcr__/
 __generated__/
+coverage/
+lib/

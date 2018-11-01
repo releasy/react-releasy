@@ -4,9 +4,8 @@ install: true
 cache: yarn
 
 node_js:
-  - '6'
   - '8'
-  - '9'
+  - '10'
 
 install:
   - yarn install

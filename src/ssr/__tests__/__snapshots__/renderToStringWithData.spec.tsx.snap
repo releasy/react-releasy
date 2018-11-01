@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should hydrate with data 1`] = `"<div>fakeViewerId<!-- -->: <!-- -->John Doe</div>"`;
+
+exports[`should render to string with data 1`] = `
+Object {
+  "html": "<div>fakeViewerId<!-- -->: <!-- -->John Doe</div>",
+  "scripts": "<script>window.__RELEASY_DATA__ = {\\"MeQuery_3700201212\\":{\\"me\\":{\\"id\\":\\"fakeViewerId\\",\\"name\\":\\"John Doe\\"}}}</script>",
+}
+`;

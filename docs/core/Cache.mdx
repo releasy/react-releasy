@@ -1,0 +1,20 @@
+---
+name: Cache
+menu: Core
+route: /core/cache
+---
+
+# Cache
+
+A class responsible to store/recover data without needing make any request to the server.
+
+## Usage
+
+```javascript
+import { InMemoryCache } from 'react-releasy';
+
+const cache = new InMemoryCache({
+  ttl: 300000,
+  size: 250,
+});
+```

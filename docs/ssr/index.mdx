@@ -1,0 +1,86 @@
+---
+name: SSR
+route: /ssr
+---
+
+# Server-side rendering
+
+**Relay** doesn't officially support SSR right now. We're using a workaround until a better way to handle this is possible.
+
+First of all, we need to use our own `react-relay` version (based on `1.7.0`):
+
+## package.json
+
+```javascript
+  "dependencies": {
+    "react-relay": "https://github.com/releasy/relay/releases/download/v1.7.0-releasy/react-relay-1.7.0-releasy.tgz",
+  },
+  "resolutions": {
+    "react-relay": "https://github.com/releasy/relay/releases/download/v1.7.0-releasy/react-relay-1.7.0-releasy.tgz"
+  },
+```
+
+## Server-side
+
+We can easily use `renderToStringWithData` to configure our server:
+
+```javascript
+import path from 'path';
+import fs from 'fs';
+import { ReleasyProvider, Config, Link, renderToStringWithData } from 'react-releasy';
+
+// renderer middleware
+const filePath = path.resolve(__dirname, '..', 'build', 'index.html');
+fs.readFile(filePath, 'utf8', (htmlErr, htmlData) => {
+  if (htmlErr) {
+    return res.status(404).end()
+  }
+
+  const config = new Config({
+    link: new Link({
+      url: 'https://yourserveraddress.com/graphql',
+    }),
+    ssrMode: true,
+  });
+
+  renderToStringWithData(
+    <ReleasyProvider config={config}>
+      <App />
+    </ReleasyProvider>,
+  ).then(({ html, scripts }) => {
+    return res.send(
+        htmlData
+          .replace('<div id="root"></div>', `<div id="root">${html}</div>${scripts}`)
+    );
+  }); 
+});
+```
+
+## Client-side
+
+On the client-side, we just have to rehydrate:
+
+```javascript
+import { ReleasyProvider, Config, Link, renderToStringWithData } from 'react-releasy';
+
+const config = new Config({
+  link: new Link({
+    url: 'https://yourserveraddress.com/graphql',
+  }),
+});
+
+const Application = (
+  <ReleasyProvider config={config}>
+    <App />
+  </ReleasyProvider>
+);
+
+const root = document.getElementById('root');
+
+if (root.hasChildNodes() === true) {
+  ReactDOM.hydrate(Application, root);
+} else {
+  ReactDOM.render(Application, root);
+}
+
+```

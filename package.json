@@ -1,6 +1,6 @@
 {
   "name": "react-releasy",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Relay with zero-configuration",
   "keywords": [
     "react",
@@ -14,85 +14,102 @@
     "url": "git+https://github.com/releasy/react-releasy"
   },
   "main": "lib/index.js",
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge",
+    "react-relay": "https://github.com/releasy/relay/releases/download/v1.7.0-releasy/react-relay-1.7.0-releasy.tgz"
+  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.1",
-    "babel-plugin-relay": "^1.4.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.17.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-import-resolver-webpack": "^0.8.4",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.6.1",
-    "flow-bin": "^0.65.0",
-    "jest": "^22.2.1",
-    "jest-fetch-mock": "^1.4.2",
-    "lint-staged": "^6.1.0",
-    "pre-commit": "^1.2.2",
-    "prettier": "^1.10.2",
-    "react-dom": "^16.2.0",
-    "relay-compiler": "^1.5.0",
-    "relay-devtools": "^1.4.0"
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/graphql": "^14.0.2",
+    "@types/invariant": "^2.2.29",
+    "@types/jest": "^23.3.3",
+    "@types/node": "^10.11.4",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.8",
+    "@types/react-relay": "^1.3.9",
+    "@types/relay-runtime": "^1.3.6",
+    "@types/string-hash": "^1.1.1",
+    "babel-core": "^7.0.0-bridge",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-relay": "^1.7.0",
+    "docz": "^0.12.9",
+    "docz-plugin-netlify": "^1.1.4",
+    "docz-theme-default": "^0.12.9",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "graphql-compiler": "^1.6.2",
+    "jest": "^23.6.0",
+    "jest-fetch-mock": "^1.6.6",
+    "react-dom": "16.5.2",
+    "relay-compiler": "^1.7.0",
+    "relay-compiler-language-typescript": "^1.1.1",
+    "relay-devtools": "^1.4.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "typescript": "^3.1.1"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0",
-    "fbjs": "^0.8.16",
-    "invariant": "^2.2.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-relay": "^1.5.0",
-    "relay-runtime": "^1.5.0"
+    "graphql": "^14.0.2",
+    "invariant": "^2.2.4",
+    "local-storage-fallback": "^4.1.1",
+    "react": "16.5.2",
+    "react-relay": "https://github.com/releasy/relay/releases/download/v1.7.0-releasy/react-relay-1.7.0-releasy.tgz",
+    "relay-runtime": "^1.7.0",
+    "string-hash": "^1.1.3",
+    "tslib": "^1.9.3"
+  },
+  "scripts": {
+    "build": "npx tsc --noEmit --pretty && npx babel --extensions '.ts,.tsx' --source-maps --out-dir lib src",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "relay": "relay-compiler --src ./tests/components --schema tests/data/schema.graphql --language typescript",
+    "release:prerelease": "npm run test && npm run build && npm version prerelease && git push --follow-tags && npm publish --tag next --access public",
+    "release:patch": "npm run test && npm run build && npm version patch && git push --follow-tags && npm publish --access public",
+    "release:minor": "npm run test && npm run build && npm version minor && git push --follow-tags && npm publish --access public",
+    "release:major": "npm run test && npm run build && npm version major && git push --follow-tags && npm publish --access public",
+    "test": "jest --coverage --runInBand --forceExit",
+    "test:watch": "jest --watchAll --coverage"
   },
   "jest": {
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "setupFiles": [
-      "<rootDir>/test/setup.js"
+      "<rootDir>/tests/setup.ts"
     ],
     "testPathIgnorePatterns": [
-      "/__generated__/",
       "/coverage/",
       "/lib/",
       "/node_modules/"
     ],
     "coveragePathIgnorePatterns": [
       "/__tests__/",
-      "/__generated__/",
       "/coverage/",
       "/lib/",
+      "/tests/",
       "/node_modules/"
+    ],
+    "watchPathIgnorePatterns": [
+      "/__vcr__/"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "yarn prettier",
-      "git add"
-    ]
-  },
-  "pre-commit": [
-    "flow",
-    "lint:staged"
-  ],
-  "scripts": {
-    "prepublish": "npm run build",
-    "test": "jest --coverage --runInBand --forceExit",
-    "test:watch": "jest --watch --coverage",
-    "build": "babel src -d lib --ignore __tests__",
-    "flow": "node_modules/.bin/flow check",
-    "lint": "eslint --ext js src",
-    "lint:staged": "lint-staged",
-    "check": "npm run lint && npm run test",
-    "release:prerelease": "npm run check && npm version prerelease && git push --follow-tags && npm publish --tag next --access public",
-    "release:patch": "npm run check && npm version patch && git push --follow-tags && npm publish --access public",
-    "release:minor": "npm run check && npm version minor && git push --follow-tags && npm publish --access public",
-    "release:major": "npm run check && npm version major && git push --follow-tags && npm publish --access public",
-    "relay": "relay-compiler --src ./test/components --schema test/fixtures/graphql/schema.graphql"
   }
 }

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create a valid VCR 1`] = `
+VCR {
+  "autoMode": [Function],
+  "fetch": [Function],
+  "link": Link {
+    "fetch": [Function],
+    "fetchTimeout": 30000,
+    "headers": Object {},
+    "retryDelays": Array [
+      1000,
+      3000,
+      5000,
+      10000,
+    ],
+    "url": "/graphql",
+  },
+  "mode": "Auto",
+  "recordMode": [Function],
+  "replayMode": [Function],
+  "shelf": VCRNodeShelf {
+    "exists": [Function],
+    "get": [Function],
+    "set": [Function],
+  },
+}
+`;
+
+exports[`should save and retrieve data on auto mode 1`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "id": "fakeViewerId",
+      "name": "John Doe",
+    },
+  },
+}
+`;
+
+exports[`should save data on record mode and retrieve data on replay mode 1`] = `
+VCR {
+  "autoMode": [Function],
+  "fetch": [Function],
+  "link": Link {
+    "fetch": [Function],
+    "fetchTimeout": 30000,
+    "headers": Object {},
+    "retryDelays": Array [
+      1000,
+      3000,
+      5000,
+      10000,
+    ],
+    "url": "/graphql",
+  },
+  "mode": "Record",
+  "recordMode": [Function],
+  "replayMode": [Function],
+  "shelf": VCRNodeShelf {
+    "exists": [Function],
+    "get": [Function],
+    "set": [Function],
+  },
+}
+`;
+
+exports[`should save data on record mode and retrieve data on replay mode 2`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "id": "fakeViewerId",
+      "name": "John Doe",
+    },
+  },
+}
+`;
+
+exports[`should save data on record mode and retrieve data on replay mode 3`] = `
+VCR {
+  "autoMode": [Function],
+  "fetch": [Function],
+  "link": Link {
+    "fetch": [Function],
+    "fetchTimeout": 30000,
+    "headers": Object {},
+    "retryDelays": Array [
+      1000,
+      3000,
+      5000,
+      10000,
+    ],
+    "url": "/graphql",
+  },
+  "mode": "Replay",
+  "recordMode": [Function],
+  "replayMode": [Function],
+  "shelf": VCRNodeShelf {
+    "exists": [Function],
+    "get": [Function],
+    "set": [Function],
+  },
+}
+`;
+
+exports[`should save data on record mode and retrieve data on replay mode 4`] = `
+Object {
+  "data": Object {
+    "me": Object {
+      "id": "fakeViewerId",
+      "name": "John Doe",
+    },
+  },
+}
+`;
