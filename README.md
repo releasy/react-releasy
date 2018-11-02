@@ -30,7 +30,7 @@ npm install --save-dev relay-devtools
 
 ## Usage
 
-Using `Releasy` is quite simple, first we need to create an instance of our [Config](/core/config) class:
+Using `Releasy` is quite simple, first we need to create an instance of our [Config](https://releasy.netlify.com/core/config) class:
 
 ```javascript
 import { Config, InMemoryCache, Link } from 'react-releasy';
@@ -47,7 +47,7 @@ const config = new Config({
 });
 ```
 
-Then we need to wrap the application with a [ReleasyProvider](/components/releasy-provider):
+Then we need to wrap the application with a [ReleasyProvider](https://releasy.netlify.com/components/releasy-provider):
 
 ```javascript
 import { ReleasyProvider } from 'react-releasy';
@@ -62,7 +62,7 @@ ReactDOM.render(
 
 ## Examples
 
-Let's start making a simple [Query](/components/query):
+Let's start making a simple [Query](https://releasy.netlify.com/components/query):
 
 ```javascript
 import { graphql } from 'react-relay';
@@ -129,12 +129,12 @@ const commit = (name) => {
 export default { commit };
 ```
 
-That's all! You can start to do whatever you want and show to the world the power of Relay.
+All set! You can start to do whatever you want and show to the world the power of Relay.
 
 ## Documentation
 
-See more documentation [here](docs).
+See more documentation [here](https://releasy.netlify.com).
 
 ## License
 
-MIT © [Felippe Rodrigo Puhle](http://github.com/felippepuhle)
+MIT © [Felippe Rodrigo Puhle](https://github.com/felippepuhle)
